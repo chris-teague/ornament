@@ -1,5 +1,67 @@
 <% content_for :title, "Fotorama" %>
 
+<div class="content-spacing">
+
+  <h2 class="heading-two">Fotorama</h2>
+
+  <ul>
+    <li><a href="http://fotorama.io/">Official Website</a></li>
+    <li><a href="http://fotorama.io/customize/" target="_blank">Documentation</a></li>
+  </ul>
+
+  <h2 class="heading-two">Standard Gallery</h2>
+
+  <div class="fotorama" data-loop="true" data-width="100%" data-ratio="700/467">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/2-lo.jpg">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/9-lo.jpg">    
+  </div>
+
+  <h2 class="heading-two">Gallery with thumbnails</h2>
+
+  <div class="fotorama" data-loop="true" data-nav="thumbs" data-width="100%" data-ratio="700/467">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/2-lo.jpg">
+    <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/9-lo.jpg">    
+  </div>
+
+  <h2 class="heading-two">Gallery with captions</h2>
+
+  <div class="fotorama" data-loop="true" data-width="100%" data-fotorama-captions>
+    <div>
+      <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg" class="fotorama--image">
+      <div class="fotorama--caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ullam, fuga perferendis, officia consectetur repellendus veritatis itaque. Sequi porro, reiciendis.</p>
+      </div>
+    </div>
+    <div>
+      <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/2-lo.jpg" class="fotorama--image">
+      <div class="fotorama--caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sit quam voluptatum fugiat eaque cumque obcaecati expedita dolore! Soluta blanditiis delectus odio eum rerum asperiores minima itaque beatae omnis quasi ratione accusantium saepe, in numquam eius quidem quis expedita molestiae quam, eligendi explicabo hic et. Adipisci enim, harum excepturi consectetur!</p>
+      </div>
+    </div>
+    <div>
+      <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/9-lo.jpg" class="fotorama--image">
+      <div class="fotorama--caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum animi alias, obcaecati deserunt asperiores incidunt ea. Quidem doloremque omnis, accusantium sed tempora voluptatem eos, dolore, quibusdam eum vel ad consectetur fuga? Voluptas amet ipsam pariatur reprehenderit quaerat cum, quo necessitatibus veniam at? Sequi perferendis, deleniti! Exercitationem, natus, at. Esse nihil, accusamus ipsa ea, ullam ab tempore molestiae quis. Voluptates non placeat corporis dolorum, maxime dolore, veniam quae amet reiciendis voluptate ipsa fuga repellendus. A atque rem quia, excepturi expedita nobis.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-two">Banner slider with custom arrows, bullets and captions</h2>
+
+  <div class="fotorama" data-loop="true" data-width="100%" data-fotorama-banner>
+    <div>
+      <img src="http://placehold.it/800x350" />
+      <div class="fotorama--caption">
+        This is a caption
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--
 <div class="rhythm">
 
   <section class="spacing">
@@ -60,3 +122,4 @@
   </section>
 
 </div>
+-->

@@ -1,52 +1,53 @@
 @import "fotorama";
 
-.fotorama-gallery {
-  margin-bottom: $large-unit;
-}
+$fotorama-background: $grey;
+$fotorama-caption-breakpoint: 500px;
 
-.fotorama__stage__frame,
-.content figure {
-  // background: $xxx-light-blue;
+// Background
+.fotorama__stage__frame {
+  background: $fotorama-background;
   @include border-radius($border-radius);
   -webkit-transform: rotate(0.000001deg);
-}
 
-.fotorama__caption {
-  background: $primary-color;
-  background: rgba($primary-color,0.8);
-  right: 0;
-  color: #fff;
-  padding: 10px $default-unit;
-  padding-right: $xx-large-unit;
-  bottom: 0;
-  margin-top: -40px;
-  line-height: 1.7;
-  @include border-radius(0 0 $border-radius $border-radius);
-}
-
-.fotorama__caption {
-  @include media-query(tiny) {
-    display: none;
+  .fotorama[data-nav=thumbs] & {
+    @include border-bottom-left-radius(0);
+    @include border-bottom-right-radius(0);
   }
 }
 
-.fotorama__caption__wrap {
-  background: transparent;
-  padding: 0;
-  overflow: hidden;
+// Galleries with captions
+.fotorama[data-fotorama-captions] {
+
+  .fotorama--image {
+    width: 100%;
+  }
+
+  .fotorama--caption {
+    padding: $small-unit;  
+
+    @include media-query($fotorama-caption-breakpoint, min) {
+      position: absolute;
+      top: $large-unit;
+      right: $large-unit;
+      width: 300px;
+      background: $fotorama-background;
+    }
+  }
 }
 
-.fotorama__nav-wrap {
-  margin-top: $xx-small-unit;
-  @include border-radius($border-radius);
+// Thumbnails
+.fotorama[data-nav=thumbs] .fotorama__nav-wrap {
+  background: $fotorama-background;
+  margin-top: 2px;
+  padding: $xxxxx-small-unit;
+  @include border-bottom-left-radius($border-radius);
+  @include border-bottom-right-radius($border-radius);
 }
-
 .fotorama__thumb-border {
   border-color: $primary-color;
 }
 
 // Arrows
-
 .fotorama__arr.fotorama__arr--prev {
   @include grunticon("chevron-left-16-white", 16px);
   @include translate3d($default-unit, 0, 0);
@@ -60,7 +61,6 @@
   position: absolute;
   padding: 0;
 }
-
 .fotorama__arr.fotorama__arr--prev,
 .fotorama__arr.fotorama__arr--next {
   background: $primary-color;
