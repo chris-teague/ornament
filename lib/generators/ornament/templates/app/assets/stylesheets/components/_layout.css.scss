@@ -83,7 +83,12 @@ html,body,
   }
 }
 
-// TRAY STYLE
+// v2 TRAY STYLE
+// Bugs:
+// * IOS - Can scroll content when pane is open
+// * IE8/9 - Scroll doesn't update correctly (rendering)
+// * All - Flickering when returning to a pane that was 
+//         previously resized to a different size
 
 .layout--mobile-tray {
   position: fixed;
@@ -93,7 +98,7 @@ html,body,
   height: 100%;
   width: $layout-mobile-tray-width;
   z-index: 1;
-  @include translate(40px, 0);
+  @include translate(80px, 0);
   @include single-transition(transform, $layout-animation-duration);
 }
 
