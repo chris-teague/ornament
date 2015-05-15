@@ -92,6 +92,12 @@
                     </ul>
                   </li>
                   <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
                 </ul>
 
               </div>
@@ -100,16 +106,14 @@
         </nav>
       </div>
 
-      <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
+      <header class="layout--header" role="banner">
+        <div class="header">
+          header
+          <button class="layout--switch header--menu">open navigation</button>
+        </div>
+      </header>
 
-        <header class="layout--header" role="banner">
-          <div class="layout--container">
-            <div class="header">
-              header
-              <button class="layout--switch header--menu">open navigation</button>
-            </div>
-          </div>
-        </header>
+      <%= content_tag :div, class: "layout--content environment-#{Rails.env}" do %>
 
         <%= yield :above_layout -%>
         <%- if content_for?(:global) || !yield.blank? -%>

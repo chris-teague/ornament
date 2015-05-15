@@ -79,6 +79,7 @@ $navigation-secondary-pane-link-color:  #fff;
 
   // Pane list styles
   .pane--navigation-container ul {
+    overflow: auto;
     border-bottom: 1px solid $navigation-first-pane-border;
 
     li + li > a,

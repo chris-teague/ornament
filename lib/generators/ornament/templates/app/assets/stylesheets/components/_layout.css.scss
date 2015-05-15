@@ -10,19 +10,26 @@ $layout-mobile-footer-gap:      $small-unit;
 $layout-mobile-header-gap:      $small-unit;
 
 html {
-  overflow-y: scroll !important;
+  // overflow-y: scroll !important;
 }
 
 body {
+  overflow-y: scroll;
   background: $background-color;
 }
 
+html,body,
 .layout {
   height: 100%;
 }
 
-.layout--mobile-tray {
-  display: none;
+.layout--header {
+  @include single-transition(transform, $layout-animation-duration);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .layout--content {
@@ -30,13 +37,16 @@ body {
   background: $layout-background;
   min-height: 100%;
   overflow: hidden;
+  padding-top: 84px;
+  position: relative;
+  z-index: 2;
 }
 
 .layout--switch {
   background: red;
   float: right;
   @include media-query($layout-breakpoint,min) {
-    display: none;
+    // display: none;
   }
 }
 
@@ -63,61 +73,100 @@ body {
   }
 }
 
-@include media-query($layout-breakpoint) {
+// @include media-query($layout-breakpoint) {
 
-  // MENU OPEN
-  //
+.layout-open {
+  overflow: hidden;
 
-  .layout-open {
+  .layout--switch {
+    background: green;
+  }
+}
 
-    .layout--mobile-tray {
-      display: block;
-      min-height: 100%;
-      float: right;
-      width: $layout-mobile-tray-width;
-    }
+/*
+// TRAY STYLE
 
-    .layout--content {
-      @include translate(-($layout-mobile-tray-width), 0);
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      @include box-shadow(0 0 10px rgba(0,0,0,0.2));
-    }
+.layout--mobile-tray {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: $layout-mobile-tray-width;
+  z-index: 1;
+  @include translate(40px, 0);
+  @include single-transition(transform, $layout-animation-duration);
+}
 
-    .layout--switch {
-      background: green;
-    }
-
+.layout-open {
+  .layout--mobile-tray {
+    overflow-x: none;
+    @include translate(0, 0);
   }
 
-  // MENU TRANSITIONING
-  //
+  .layout--content,
+  .layout--header {
+    @include translate(-($layout-mobile-tray-width), 0);
 
-  .layout-transitioning {
-
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-
-    .layout--mobile-tray {
-      display: block;
-      min-height: 100%;
-      float: right;
-      width: $layout-mobile-tray-width;
+    .no-csstransforms & {
+      left: -($layout-mobile-tray-width);
+      right: $layout-mobile-tray-width;
     }
+  }
 
-    .layout--content {
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      @include box-shadow(0 0 10px rgba(0,0,0,0.1));
-    }
-
+  .layout--content {
+    @include box-shadow(0 0 10px rgba(0,0,0,0.2));
   }
 
 }
+
+.layout-transitioning {
+
+  .layout--content {
+    @include box-shadow(0 0 10px rgba(0,0,0,0.1));
+  }
+}
+*/
+
+// OVERLAY STYLE
+.layout--mobile-tray {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-top: 84px;
+  height: 100%;
+  width: $layout-mobile-tray-width;
+  z-index: 5;
+  @include translate($layout-mobile-tray-width, 0);
+  @include transition(transform $layout-animation-duration, box-shadow $layout-animation-duration);
+
+  .no-csstransforms & {
+    right: -($layout-mobile-tray-width);
+  }
+
+  .layout-open & {
+    @include translate(0, 0);
+
+    .no-csstransforms & {
+      right: 0;
+    }
+  }
+}
+
+.layout--main:before {
+  content: "";
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  @include transition(opacity .2s);
+  @include opacity(0);
+
+  .layout-open & {
+    @include opacity(1);
+  }
+}
+// }
