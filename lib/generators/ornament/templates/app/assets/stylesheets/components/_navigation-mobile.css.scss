@@ -80,20 +80,23 @@ $navigation-secondary-pane-link-color:  #fff;
   // Pane list styles
   .pane--navigation-container ul {
     overflow: auto;
-    border-bottom: 1px solid $navigation-first-pane-border;
 
     li + li > a,
     li + li > .faux-link {
       border-top: 1px solid $navigation-first-pane-border;
     }
 
+    > li:last-child {
+      border-bottom: 1px solid $navigation-first-pane-border;
+    }
+
     @if $navigation-secondary-pane-different == true {
-      ul {
-        border-bottom: 1px solid $navigation-secondary-pane-border;
-      }
       ul li + li > a,
       ul li + li > .faux-link {
         border-top: 1px solid $navigation-secondary-pane-border;
+      }
+      ul > li:last-child {
+        border-bottom: 1px solid $navigation-secondary-pane-border;
       }
     }
   }

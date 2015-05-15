@@ -83,7 +83,6 @@ html,body,
   }
 }
 
-/*
 // TRAY STYLE
 
 .layout--mobile-tray {
@@ -100,6 +99,7 @@ html,body,
 
 .layout-open {
   .layout--mobile-tray {
+    -webkit-overflow-scrolling: touch;
     overflow-x: none;
     @include translate(0, 0);
   }
@@ -126,8 +126,8 @@ html,body,
     @include box-shadow(0 0 10px rgba(0,0,0,0.1));
   }
 }
-*/
 
+/*
 // OVERLAY STYLE
 .layout--mobile-tray {
   position: fixed;
@@ -165,8 +165,17 @@ html,body,
   @include transition(opacity .2s);
   @include opacity(0);
 
+  .no-opacity & {
+    display: none;
+  }
+
   .layout-open & {
     @include opacity(1);
+
+    .no-opacity & {
+      display: block;
+    }
   }
 }
+*/
 // }
