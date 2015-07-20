@@ -1,0 +1,27 @@
+@function ratio($width, $height) {
+  @return ($height / $width) * 100%;
+}
+
+@mixin ratio-sizing($width, $height, $child) {
+  position: relative;
+  padding-top: 3px;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: ratio($width, $height);
+
+  #{$child} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.embed__vimeo {
+  @include ratio-sizing(950, 540, iframe);
+}
+
+.embed__youtube {
+  @include ratio-sizing(560, 315, iframe);
+}

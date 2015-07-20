@@ -1,5 +1,0 @@
-@mixin line-height-padding($this-height, $this-line-height: $base-line-size) {
-  $line-height-padding: ($this-height - $this-line-height) / 2;
-  padding-top: $line-height-padding;
-  padding-bottom: $line-height-padding;
-}

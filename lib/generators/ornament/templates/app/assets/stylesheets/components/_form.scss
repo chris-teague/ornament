@@ -1,0 +1,490 @@
+$form-line-height:    $button-height - 2;
+$form-inline-height:  $button-height;
+$form-width:          748px; // used for calculating % widths of inputs
+$hint-color:          $grey;
+
+@mixin input__flat-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+@mixin input__flat-left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+// FORMS NORMALISATION
+fieldset {
+  display: inline-block;
+  width: 100%;
+}
+
+legend {
+  display: none;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  background: $input-background;
+  border: $input-border;
+  color: $input-color;
+  width: $input-width;
+}
+
+[type="radio"], [type="checkbox"], [type="submit"] {
+  cursor: pointer;
+}
+
+[type="radio"], [type="checkbox"] {
+  margin: $checkbox-radio-padding;
+}
+
+[type="submit"] {
+  line-height: inherit;
+  margin: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+input, textarea, keygen, select {
+  display: inline-block;
+}
+
+textarea {
+  height: $textarea-height;
+  overflow: auto;
+  max-width: 100%;
+}
+
+input[type=file] {
+  max-width: 100%;
+}
+
+button, input[type=submit] {
+  -webkit-appearance: none;
+}
+
+// Firefox 2px button issue fix
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+// Styling input fields
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=datetime],
+input[type=time],
+select,
+textarea,
+.form-label-combo,
+.select2-container-multi .select2-choices {
+  border: $input-border;
+  background: $white;
+  line-height: $base-line-size;
+  @include line-height-padding($form-line-height);
+  padding-left: $xxxx-small-unit;
+  padding-right: $xxxx-small-unit;
+  margin: 0;
+  @include transition(border-color .2s);
+  border-radius: $input-border-radius;
+  box-shadow: inset 1px 1px 3px 0px rgba(0,0,0,0.20);
+
+  .form-field__error & {
+    border-color: $error-color;
+    box-shadow: inset 2px 2px 2px 0px rgba($error-color,0.20);
+  }
+
+  &.input__flat-right {
+    @include input__flat-right;
+  }
+  &.input__flat-left {
+    @include input__flat-left;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $input-border-focus-color;
+  }
+
+  &[readonly],
+  &[disabled] {
+    background: $passive-color;
+    cursor: not-allowed;
+  }
+
+  &.input__tight {
+    padding: 6px 8px;
+  }
+}
+select {
+  width: 100%;
+  font: inherit;
+  color: $input-color;
+}
+
+// PLACEHOLDERS
+$placeholder-color: #ccc;
+@include input-placeholder {
+  color: $placeholder-color !important;
+}
+
+// SPACING
+.form-field {
+  .form-field--label {
+    display: inline-block;
+  }
+  .form-field--input {
+    margin-top: $xxx-small-unit;
+  }
+}
+
+// INPUT NUMBER SPINNERS
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+// WEBKIT SELECT MENU OVER-RIDE
+// https://raw2.github.com/isellsoap/forms.css/gh-pages/assets/css/forms.css
+@media (-webkit-min-device-pixel-ratio: 0) {
+
+  select {
+    -webkit-appearance: none;
+  }
+
+  /*
+   * 1. https://github.com/nathansmith/formalize/issues/44
+   */
+
+  select[multiple],
+  select[multiple][size], /* 1 */
+  select[size] {
+    background-image: none;
+    padding-right: 3px;
+  }
+
+  select,
+  select[size='0'],
+  select[size='1'] {
+    background-image: url('/assets/images/select_arrow.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: $x-large-unit;
+    box-shadow: none;
+  }
+
+}
+
+// FIELD LENGTH MODIFIERS
+.input__large,
+.form-field__large {
+  max-width: spanf(3,4,$form-width);
+}
+
+.input__medium,
+.form-field__medium {
+  max-width: spanf(1,2,$form-width);
+}
+.input__small,
+.form-field__small {
+  max-width: spanf(1,3,$form-width);
+}
+.input__x-small,
+.form-field__x-small {
+  max-width: spanf(1,4,$form-width);
+}
+
+// EMBEDDED FORMS THAT LIVE UNDER CONTENT
+.form-embedded {
+  margin-top: $default-unit;
+}
+
+// RADIOS AND CHECKBOXES
+$radio-offset: 24px;
+.radio_buttons,
+.check_boxes {
+  @include pie-clearfix;
+
+  .radio,
+  .checkbox {
+    position: relative;
+    padding-left: $radio-offset;
+    margin-right: $xxx-small-unit;
+    float: left;
+    clear: both;
+
+    input {
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+  }
+}
+
+.form--horizontal {
+  @include pie-clearfix;
+
+  .radio,
+  .checkbox {
+    float: left;
+    clear: none;
+    margin-right: $xx-small-unit;
+  }
+}
+
+// SINGLE CHECKBOXES
+.form__checkbox {
+  position: relative;
+  @include pie-clearfix;
+
+  .form-field--label {
+    padding-left: $radio-offset;
+  }
+  .form-field--input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+  .form-field--label + div {
+    margin-top: $xxxxx-small-unit;
+  }
+  .form-field--hint {
+    clear: both;
+  }
+}
+
+// ERRORS & HINTS
+.form-field--hint,
+.form-field--error-message {
+  display: block;
+  clear: both;
+}
+
+.form-field--hint {
+  color: $hint-color;
+  font-style: italic;
+  font-size: $small-font-size;
+  margin: 0;
+}
+
+.form-field--error-message {
+  color: $error-color;
+  font-size: $small-font-size;
+  margin-top: $xxxxx-small-unit;
+}
+
+// LABELS WITH ERRORS
+.form-field__error {
+  color: $error-color;
+}
+
+// REQUIRED FIELDS
+abbr[title=required] {
+  color: $primary-color;
+  margin-right: -3px;
+}
+
+// INPUT ATTACHMENTS
+.form-field__attachments {
+  @include display-flex;
+  max-width: 100%;
+
+  input {
+    border-radius: 0;
+    @include flex(1);
+  }
+
+  input:first-child {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  input:last-child {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+.form-field--attachment:not(.button) {
+  @include display-flex;
+  background: $passive-color;
+  padding-left: $xxxx-small-unit;
+  padding-right: $xxxx-small-unit;
+  border: $input-border;
+
+  & + input,
+  input + & {
+    border-left: 0;
+  }
+}
+
+.form-field--attachment {
+  border-radius: 0;
+
+  &:first-child {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  span {
+    @include align-self(center);
+  }
+}
+
+// FILE UPLOAD
+$file-thumbnail-width: 100px;
+.form--file-upload {
+  position: relative;
+
+  .form--file-upload--thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+  }
+
+  .form--file-upload--body {
+    padding-left: ($file-thumbnail-width + $xx-small-unit);
+    min-height: $file-thumbnail-width;
+
+    label {
+      display: block;
+    }
+  }
+}
+
+// TEXT LIMITER
+.input__limited {
+  position: relative;
+
+  .input__limited--counter {
+    position: absolute;
+    top: 50%;
+    right: $xxxx-small-unit;
+    transform: translate3d(0, -50%, 0);
+    color: $grey;
+    font-size: $small-font-size;
+  }
+}
+
+// DATEPICKER
+$datepicker-breakpoint: 600px;
+.input-date-value {
+  max-width: 240px;
+}
+.input-date-value-edit {
+  margin-left: $xxxx-small-unit;
+}
+.input-date-head {
+  @include display-flex;
+}
+.input-date-head-arrow {
+  @include align-self(center);
+  cursor: pointer;
+  padding: $xxx-small-unit;
+
+  &:hover {
+    background: $passive-color;
+  }
+}
+.input-date-head-title {
+  @include flex(1);
+  text-align: center;
+  padding: $xxx-small-unit;
+  @include font($bold-font);
+}
+.input-date-calendar {
+  border: 1px solid $table-border-color;
+  border-bottom-width: 0;
+  max-width: 720px;
+}
+.input-date table {
+  table-layout: fixed;
+}
+.input-date td,
+.input-date th {
+  padding: $xxxxx-small-unit;
+}
+.input-date th {
+  @include media-query($datepicker-breakpoint) {
+    @include font($body-font);
+  }
+}
+.input-date td {
+  @include media-query($datepicker-breakpoint) {
+    padding: 0;
+  }
+}
+.input-date-day {
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+
+  > div {
+    color: $grey;
+    padding: $xxxxx-small-unit;
+    border-radius: $border-radius;
+  }
+
+  &:hover > div {
+    background: lighten($passive-color, 5);
+  }
+
+  @include media-query($datepicker-breakpoint) {
+    > div {
+      border-radius: 0;
+      padding: $xxxxx-small-unit;
+    }
+
+    strong {
+      @include font($body-font);
+    }
+  }
+}
+.input-date-day-today > div,
+.input-date-day-today:hover > div {
+  background: $passive-color;
+}
+.input-date-day-active > div,
+.input-date-day-active:hover > div {
+  color: $foreground-color;
+}
+.input-date-day-current > div,
+.input-date-day-current:hover > div {
+  background: $primary-color;
+  color: $white;
+}
+
+
+// SELECT 2 MODIFICATIONS
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding: 0;
+}
+.select2-container-multi .select2-choices .select2-search-choice {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
+  border: $input-border;
+  margin-top: -3px;
+}

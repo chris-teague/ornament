@@ -1,0 +1,69 @@
+.discussion {
+  border-top: 2px solid $divider;
+  margin: $xx-large-unit 0;
+  @include flush-children;
+}
+
+.discussion--heading {
+  padding: $default-unit 0;
+}
+
+.discussion--meta,
+.discussion--more-comments {
+  border-top: 1px solid $divider;
+}
+
+.discussion--meta {
+  @include pie-clearfix;
+}
+
+.discussion--meta--total {
+  float: left;
+}
+
+.discussion--meta--order {
+  float: right;
+
+  li {
+    float: left;
+  }
+
+  li + li {
+    margin-left: $xxx-small-unit;
+  }
+}
+
+.discussion--meta--total,
+.discussion--meta--order li strong,
+.discussion--meta--order li button {
+  display: block;
+  padding: $xxxx-small-unit 0;
+  outline: none;
+}
+
+.discussion--order--active {
+  border-bottom: 4px solid;
+}
+
+.discussion--more-comments {
+  text-align: center;
+  padding: $x-small-unit 0;
+  @include font($bold-font);
+
+  .discussion__indented & {
+    text-align: left;
+
+    @include media-query($reverse-page-breakpoint, min) {
+      button {
+        margin-left: span(4,12);
+      }
+    }
+  }
+
+  .comment--children & {
+    border-top: 0;
+    padding-bottom: 0;
+    text-align: left;
+  }
+}
+

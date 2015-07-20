@@ -67,8 +67,8 @@
 
   </head>
 
-  <!--[if lte IE 8 ]><body class="attached-navigation ie8 <%= yield :body_class -%>"> <![endif]-->
-  <!--[if (gt IE 8)|!(IE)]><!--> <body class="attached-navigation <%= yield :body_class -%>"> <!--<![endif]-->
+  <!--[if lte IE 8 ]><body class="ie8 <%= yield :body_class -%>"> <![endif]-->
+  <!--[if (gt IE 8)|!(IE)]><!--> <body class="<%= yield :body_class -%>"> <!--<![endif]-->
 
     <a class="skip-link" href="#main">skip to content</a>
 
@@ -156,12 +156,12 @@
 
         <%= yield :above_layout -%>
         <%- if content_for?(:global) || !yield.blank? -%>
-        <div class="layout--container">
-          <section class="layout--main" role="main">
-            <a id="main" name="main" tabindex="-1"></a>
-            <%= content_for?(:global) ? yield(:global) : yield %>
-          </section>
-        </div>
+          <div class="layout--container">
+            <section class="layout--main" role="main">
+              <a id="main" name="main" tabindex="-1"></a>
+              <%= content_for?(:global) ? yield(:global) : yield %>
+            </section>
+          </div>
         <%- end -%>
         <%= yield :below_layout -%>
 

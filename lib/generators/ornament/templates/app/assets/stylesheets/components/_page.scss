@@ -1,0 +1,133 @@
+$page-aside-width: 312px + $desktop-gutters;
+$page-aside-gutter: 108px;
+$page-aside-with-gutter: $page-aside-width + $page-aside-gutter;
+
+.page--title {
+  margin-bottom: $xx-large-unit;
+}
+
+.page__with-sidebar,
+.page__with-sidebar-right {
+  @include flex-row($desktop-gutters);
+}
+
+.page__with-sidebar {
+  @include flex-direction(row-reverse);
+}
+
+.page--main {
+  @include flex-col(calc(100% - #{$page-aside-with-gutter} + #{$desktop-gutters}), $desktop-gutters);
+
+  @include media-query(900px) {
+    @include flex-col(calc(100% - #{$page-aside-width}));
+  }
+
+  @include media-query(700px) {
+    @include flex-col(100%);
+  }
+}
+
+.page--sidebar {
+  @include flex-col($page-aside-width, $desktop-gutters);
+
+  @include media-query(700px) {
+    @include flex-col(100%);
+  }
+}
+
+.page__with-sidebar .page--sidebar {
+  margin-right: $page-aside-gutter - $desktop-gutters;
+
+  @include media-query(900px) {
+    margin-right: 0;
+  }
+}
+
+.page__with-sidebar-right .page--sidebar {
+  margin-left: $page-aside-gutter - $desktop-gutters;
+
+  @include media-query(900px) {
+    margin-left: 0;
+  }
+}
+
+/**
+  Reverse page layout
+*/
+.page__reverse {
+  @include flex-row($desktop-gutters);
+}
+.page--main__reverse__sole {
+  @include media-query($reverse-page-breakpoint, min) {
+    margin-left: span(4,12);
+  }
+}
+.page--main__reverse {
+  @include flex-col(span(8,12), $desktop-gutters);
+
+  @include media-query($reverse-page-breakpoint) {
+    @include flex-col(100%, $desktop-gutters);
+  }
+}
+.page--aside__reverse {
+  @include flex-col(span(4,12), $desktop-gutters);
+
+  @include media-query($reverse-page-breakpoint) {
+    @include flex-col(100%, $desktop-gutters);
+  }
+}
+
+
+
+/****
+
+.page--title {
+  margin-bottom: $xx-large-unit;
+}
+
+.page__with-sidebar,
+.page__with-sidebar-right {
+  @include row;
+}
+
+.page--main {
+  @include spang(8,12);
+
+  @include media-query(780px) {
+    @include spang(1,1);
+  }
+
+  .page__with-sidebar & {
+    float: right;
+    @include spacer-left(1,12);
+
+    @include media-query(960px) {
+      margin-left: 0;
+    }
+  }
+
+  .page__with-sidebar-right & {
+    @include spacer-right(1,12);
+
+    @include media-query(960px) {
+      margin-right: 0;
+    }
+  }
+}
+
+.page--sidebar {
+  @include spang(3,12);
+  // avoids collapsing empty sidebar
+  min-height: 1px;
+
+  @include media-query(960px) {
+    @include spang(4,12);
+  }
+
+  @include media-query(780px) {
+    margin-top: $large-unit;
+    @include spang(1,1);
+  }
+}
+
+*****/

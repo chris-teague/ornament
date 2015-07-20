@@ -1,0 +1,209 @@
+// FONTS
+
+$open-sans: ('Open Sans', sans-serif) normal normal;
+$open-sans-italic: ('Open Sans', sans-serif) italic normal;
+$open-sans-bold: ('Open Sans', sans-serif) normal bold;
+$open-sans-bold-italic: ('Open Sans', sans-serif) italic bold;
+
+$body-font: $open-sans;
+$italic-font: $open-sans-italic;
+
+$bold-font: $open-sans-bold;
+$bold-italic-font: $open-sans-bold-italic;
+
+$heading-alpha-font: $open-sans-bold;
+$heading-alpha-font-italic: $open-sans-bold-italic;
+
+$heading-beta-font: $open-sans-bold;
+$heading-beta-font-italic: $open-sans-bold-italic;
+
+$input-typeface: $body-font;
+
+// BODY
+
+@mixin body-type {
+ @include font($body-font);
+ font-size: $base-font-size;
+ line-height: $base-line-height;
+ color: $foreground-color;
+}
+
+body, .body-type {
+  @include body-type;
+}
+
+@mixin small-type {
+  @include font($body-font);
+  font-size: $small-font-size;
+  line-height: 1;
+}
+
+small {
+  @include small-type;
+}
+
+// HEADINGS
+
+@mixin heading-one {
+  @include font($heading-alpha-font);
+  font-size: 48px;
+  line-height: 50px;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  @include flush-children;
+
+  @include media-query($breakpoint-typography) {
+    // font-size: 40px;
+    // line-height: 50px;
+  }
+}
+.heading-one {
+  @include heading-one;
+}
+
+@mixin heading-two {
+  @include font($heading-alpha-font);
+  font-size: 40px;
+  line-height: 43px;
+  em {
+    @include font($heading-alpha-font-italic);
+  }
+  @include flush-children;
+
+  @include media-query($breakpoint-typography) {
+    // line-height: 36px;
+    // font-size: 26px;
+  }
+}
+.heading-two {
+  @include heading-two;
+}
+
+@mixin heading-three {
+  @include font($heading-beta-font);
+  font-size: 32px;
+  line-height: 38px;
+  em {
+    @include font($heading-beta-font-italic);
+  }
+  @include flush-children;
+
+  @include media-query($breakpoint-typography) {
+    // font-size: 20px;
+  }
+}
+.heading-three {
+  @include heading-three;
+}
+
+@mixin heading-four {
+  @include font($heading-beta-font);
+  font-size: 28px;
+  line-height: 36px;
+  em {
+    @include font($heading-beta-font-italic);
+  }
+  @include flush-children;
+}
+.heading-four {
+  @include heading-four;
+}
+
+@mixin heading-five {
+  @include font($heading-beta-font);
+  font-size: 24px;
+  line-height: 30px;
+  em {
+    @include font($heading-beta-font-italic);
+  }
+  @include flush-children;
+
+  @include media-query($breakpoint-typography) {
+
+  }
+}
+.heading-five {
+  @include heading-five;
+}
+
+@mixin heading-six {
+  @include font($heading-beta-font);
+  font-size: 20px;
+  line-height: 25px;
+  em {
+    @include font($heading-beta-font-italic);
+  }
+  @include flush-children;
+
+  @include media-query($breakpoint-typography) {
+
+  }
+}
+.heading-six {
+  @include heading-six;
+}
+
+
+// INLINE STYLES
+
+strong, b {
+  @include font($bold-font);
+}
+
+em, i {
+  @include font($italic-font);
+}
+
+em b, em strong,
+i b, i strong,
+b i, b em,
+strong i, strong em {
+  @include font($bold-italic-font);
+}
+
+del {
+  text-decoration: line-through;
+}
+
+.type--grey {
+  color: $grey;
+}
+
+// sub/sup styling
+// https://gist.github.com/unruthless/413930
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// LINKS
+
+a, button {
+  @include color-link($link-color, $link-hover-color);
+  @include decorate-link(none, underline);
+}
+
+// TABLES
+
+th {
+  @include font($bold-font);
+}
+
+// FORMS
+
+[type="text"], [type="password"], [type="date"], [type="datetime"],
+[type="email"], [type="number"], [type="search"], [type="tel"], [type="time"],
+[type="url"], textarea {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  @include font($input-typeface);
+}

@@ -12,7 +12,7 @@ $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
   font-size: 12px;
   text-transform: uppercase;
   padding: 3px 5px;
-  @include border-radius($border-radius);
+  border-radius: $border-radius;
   @include font($body-font);
 }
 
@@ -27,8 +27,8 @@ pre.prettyprint {
   font-family: $sg-code-font;
   overflow: auto;
   word-wrap: normal;
-  @include border-radius($border-radius);
-  @include box-shadow(inset 1px 1px 2px rgba(0,0,0,0.1));
+  border-radius: $border-radius;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
   text-shadow: 1px 1px #fff;
 
   strong {
@@ -57,7 +57,7 @@ code {
   background: $sg-light-grey;
   font-family: $sg-code-font;
   padding: .3em .3em .2em;
-  @include border-radius($border-radius);
+  border-radius: $border-radius;
   text-shadow: 1px 1px #fff;
   white-space: nowrap;
 
@@ -66,7 +66,7 @@ code {
     border: 0;
     background: transparent;
     padding: 0;
-    @include border-radius(none);
+    border-radius: none;
     text-shadow: none;
   }
 }

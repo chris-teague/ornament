@@ -1,0 +1,10 @@
+.well {
+  background: $passive-color;
+  padding: $default-unit $small-unit;
+  border-radius: $border-radius;
+  text-align: center;
+}
+
+h2 + .well {
+  margin-top: $default-unit;
+}

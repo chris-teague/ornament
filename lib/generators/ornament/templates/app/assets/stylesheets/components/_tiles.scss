@@ -1,0 +1,218 @@
+.tiles--filter__closing {
+  @include transition-out;
+}
+
+.tiles--filter--overlay {
+  position: fixed;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  right: 0;
+  background: rgba(#333333,0.85);
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 110;
+
+  .tiles--filter__visible & {
+    opacity: 1;
+  }
+}
+
+.tiles--filter--content {
+  color: $white;
+  padding: 70px 0;
+  transition: opacity .1s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 111;
+
+  a,button {
+    @include color-link($white, $white);
+  }
+}
+
+.tiles--filter--section {
+  padding: $default-unit 0;
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: transform .3s, opacity .3s;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  .tiles--filter__visible & {
+    transition-delay: .1s;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tiles--filter--section ul {
+  padding-top: $default-unit;
+  @include list-vertical($xxxxx-small-unit);
+  @include list-flush("top and bottom");
+}
+
+.tiles--filter--section + .tiles--filter--section {
+  border-top: 1px solid $white;
+}
+
+.tiles--filter--header {
+  @include pie-clearfix;
+
+  h2 {
+    float: left;
+    width: calc(100% - 40px);
+  }
+}
+
+.tiles--filter--close {
+  float: right;
+  width: 32px;
+  height: 32px;
+
+  path {
+    stroke: $white;
+  }
+}
+
+.tiles--heading {
+  margin-bottom: $large-unit;
+}
+
+.tiles--heading--filter {
+  @include heading-two;
+
+  svg {
+    width: 32px;
+    height: 25px;
+  }
+
+  @include media-query(800px) {
+    @include heading-four;
+
+    svg {
+      width: 24px;
+      height: 16px;
+    }
+  }
+}
+
+.tiles {
+  @include flex-row($desktop-gutters);
+}
+
+.tile {
+  padding: $desktop-gutters * 0.5;
+}
+
+.tiles__small .tile {
+  @include flex-col(25%);
+
+  @include media-query(950px) {
+    @include flex-col(33.33%);
+  }
+
+  @include media-query(800px) {
+    @include flex-col(50%);
+  }
+}
+
+.tiles__medium .tile {
+  @include flex-col(33.33%);
+
+  @include media-query(950px) {
+    @include flex-col(50%);
+  }
+
+  @include media-query(800px) {
+    @include flex-col(100%);
+  }
+}
+
+.tiles__large .tile {
+  @include flex-col(50%);
+
+  @include media-query(600px) {
+    @include flex-col(100%);
+  }
+}
+
+.tiles__small .tile--heading {
+  @include heading-six;
+}
+
+.tiles__medium .tile--heading {
+  @include heading-four;
+}
+
+.tiles__large .tile--heading {
+  @include heading-three;
+}
+
+.tile > a {
+  @include color-link($foreground-color, $foreground-color);
+  @include decorate-link(none, none);
+
+  &:hover .tile--faux-link {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+
+  // Greyscale stuff
+  .greyscale-tiles & .tile--image {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: filter .3s, -webkit-filter .3s;
+  }
+  .greyscale-tiles &:hover .tile--image {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
+}
+
+.tile--image {
+  margin-bottom: $xxxx-small-unit * -1;
+  height: 0;
+  padding-bottom: 75%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 25px;
+    background: $white;
+    transform: skewX(45deg);
+    transform-origin: bottom;
+  }
+
+  svg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.tile--heading {
+  padding-right: $xx-small-unit;
+}
+
+.tile--content {
+  position: relative;
+  z-index: 2;
+}

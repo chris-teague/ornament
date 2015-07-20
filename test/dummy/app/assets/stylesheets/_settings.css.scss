@@ -80,6 +80,10 @@ $header-breakpoint: $breakpoint-medium;
 // If changing, remember to update the JS variable in defaults.js
 $breakpoint-header: 990px;
 
+// Reverse page breakpoint
+// used with page__reverse classes
+$reverse-page-breakpoint: 740px;
+
 $site-breakpoints:
   (tiny, $breakpoint-tiny),
   (small, $breakpoint-small),
@@ -100,8 +104,6 @@ $small-gutter:    $large-unit;
 $tiny-gutter:     $default-unit;
 
 $site-gutters:
-  (large, $large-gutter),
-  (medium, $tiny-gutter),
   false
 ;
 
@@ -131,6 +133,7 @@ $background-color: #fff;
 $link-color: $primary-color;
 $link-hover-color: false;
 
+$divider: $passive-color;
 $input-border-color: #D3D3D3;
 $input-border-focus-color: darken($input-border-color,20);
 $table-border-color: #BDC3C7;
@@ -161,19 +164,58 @@ $textarea-height:         $base-line-size*5;
 $layout-mobile-tray-width:  250px;
 $layout-animation-duration: 0.5s;
 
-// Fixed positioning offset for IE browsers
-// Apply this mixin to elements that are fixed (such as mobile fixed header)
-// to make it position correctly in IE
-// Make sure you enable the feature detection in navigation-mobile.js
-// and use the correct element to test. 
-// More information about the bug:
-// http://stackoverflow.com/questions/27952725/why-doesnt-translatex-work-as-expected-for-fixed-elements-on-ie9-ie10-and-ie1
-@mixin ie-fixed-offset {
-  .layout--ie-fixed-position-bug & {
-    @include transition(all $layout-animation-duration);
-  }
-  .layout-open.layout--ie-fixed-position-bug & {
-    left: $layout-mobile-tray-width * -1;
-    right: $layout-mobile-tray-width;
-  }
-}
+
+
+
+/**
+  LEGACY SETTINGS
+  TO BE CONSOLIDATED AND REMOVED
+*/
+
+
+// BASE FONT SIZE
+
+$FONT_SIZE: 16px;
+
+// LINES
+
+$LINE_HEIGHT: 1.375;       // 22px
+$LINE: $LINE_HEIGHT * 1em; // 1.375em
+
+// GUTTERS
+
+$GUTTER:          1.50em; // 24px
+$GUTTER_SMALL:    1.00em; // 16px
+$GUTTER_X_SMALL:  0.50em; // 8px
+$GUTTER_XX_SMALL: 0.25em; // 4px
+
+// SPACES
+
+$SPACE_XX_LARGE:  3.000em; // 48px
+$SPACE_X_LARGE:   2.000em; // 32px
+$SPACE_LARGE:     1.500em; // 24px
+$SPACE:           1.000em; // 16px
+$SPACE_SMALL:     0.750em; // 12px
+$SPACE_X_SMALL:   0.500em; // 8px
+$SPACE_XX_SMALL:  0.250em; // 4px
+$SPACE_XXX_SMALL: 0.125em; // 2px
+
+// FONT SIZES
+
+$FONT_SIZE_XXX_LARGE: 250.0%; // 2.500em // 40px
+$FONT_SIZE_XX_LARGE:  200.0%; // 2.000em // 32px
+$FONT_SIZE_X_LARGE:   150.0%; // 1.500em // 24px
+$FONT_SIZE_LARGE:     125.0%; // 1.250em // 20px
+$FONT_SIZE_NORMAL:    100.0%; // 1.000em // 16px
+$FONT_SIZE_SMALL:      87.5%; // 0.875em // 14px
+$FONT_SIZE_X_SMALL:    75.0%; // 0.750em // 12px
+
+// COLORS
+
+$COLOR_BLACK:      hsl(  0,   0%,   0%); // #000000
+$COLOR_GREY_LIGHT: hsl(  0,   0%,  85%); // #D9D9D9
+$COLOR_WHITE:      hsl(  0,   0%, 100%); // #FFFFFF
+
+// BREAKPOINTS
+
+$BREAKPOINT_X_SMALL: 512px;

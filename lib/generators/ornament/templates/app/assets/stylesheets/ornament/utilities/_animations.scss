@@ -1,0 +1,30 @@
+@mixin transition-idle {
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 1;
+}
+
+@mixin transition-in($origin: -200px) {
+  -moz-transform: translate3d(0, $origin, 0);
+  -webkit-transform: translate3d(0, $origin, 0);
+  transform: translate3d(0, $origin, 0);
+  opacity: 0;
+}
+
+@mixin transition-out($origin: -200px) {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  -moz-transform: translate3d(0, $origin, 0);
+  -webkit-transform: translate3d(0, $origin, 0);
+  transform: translate3d(0, $origin, 0);
+  opacity: 0;
+}

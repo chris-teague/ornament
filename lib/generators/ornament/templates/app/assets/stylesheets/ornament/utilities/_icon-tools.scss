@@ -1,0 +1,14 @@
+@mixin icon-block($block-width, $icon-width:$block-width, $block-height:$block-width, $icon-height:$icon-width) {
+  @include display-flex;
+  width: $block-width;
+  height: $block-height;
+  overflow: hidden;
+  @include align-content(center);
+  @include justify-content(center);
+
+  svg {
+    width: $icon-width;
+    height: $icon-height;
+    @include align-self(center);
+  }
+}

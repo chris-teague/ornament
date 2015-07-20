@@ -1,0 +1,80 @@
+$comment-breakpoint: $reverse-page-breakpoint;
+
+.comment {
+  border-top: 1px solid $divider;
+  padding: $x-small-unit 0;
+  overflow: hidden;
+}
+
+.comment--body--actions {
+  margin-top: $xxxx-small-unit;
+
+  button + button {
+    margin-left: $xxxx-small-unit;
+  }
+}
+
+.comment--meta--name .icon-arrow {
+  width: 13px;
+  height: 9px;
+  transform: rotateZ(-90deg);
+  position: relative;
+  top: -1px;
+}
+
+.comment--meta--owner {
+  color: $default-color;
+}
+
+/**
+  Top level comments
+*/
+.comment--row__primary {
+  @include media-query($comment-breakpoint, min) {
+    @include flex-row($desktop-gutters);
+  }
+}
+
+.comment--row__primary > .comment--meta {
+  @include media-query($comment-breakpoint, min) {
+    @include flex-col(span(4,12), $desktop-gutters);
+  }
+}
+
+.comment--row__primary > .comment--body {
+  @include media-query($comment-breakpoint, min) {
+    @include flex-col(span(8,12), $desktop-gutters);
+  }
+  @include media-query($comment-breakpoint) {
+    margin-top: $xxx-small-unit;
+  }
+}
+
+/**
+  Second level comments
+*/
+.comment--children {
+  margin-top: $xx-small-unit;
+}
+.comment--children .comment {
+  border-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-left: 8px solid $passive-color;
+  padding-left: $x-small-unit;
+}
+.comment--children .comment + .comment {
+  margin-top: $xx-small-unit;
+}
+
+.comment--row__nested > .comment--body {
+  margin-top: $xxx-small-unit;
+}
+
+/**
+  Comment replies
+*/
+.comment--reply {
+  display: none;
+  padding-top: $xx-small-unit;
+}
