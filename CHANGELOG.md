@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.0
+
+Big breaking changes. This version drops support for IE8 and IE9.
+
+- Removed as much compass as possible
+- Grids have been changed to use Flexbox
 
 ## v1.1.0
 
