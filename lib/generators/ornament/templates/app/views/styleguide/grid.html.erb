@@ -1,79 +1,243 @@
 <%- content_for :page_title, "Grid" -%>
 
-<div class="content-spacing grid-examples">
+<div class="spacing content-code">
 
-  <h2 class="heading-four">Grid classes</h2>
+  <div class="content">
+    <h2>Grids and columns</h2>
 
-  <p>A grid is made of an outer-wrapper class, <code>grid</code>, and inner column classes, <code>grid-x</code>.</p>
+    <p>
+      Grids are created using <code>flexbox</code> and flex-* mixins.
+    </p>
 
-  <p>To create two columns, one 4/12, the other 8/12, can be done using <code>grid-4</code> and <code>grid-8</code>.</p>
+    <hr />
 
-  <div>
-    <%- content_for :basic do -%>
-<div class="grid">
-  <div class="grid-4">
-    <div class="panel__default">
-      This column has a class of grid-4
+    <h3>Sass mixins</h3>
+
+    <p>The wrapper element uses the <code>flex-row</code> mixin:</p>
+
+    <p><code>@include flex-row($gutter:false);</code></p>
+
+    <p>The column elements use the <code>flex-col</code> mixin:</p>
+
+    <p><code>@include flex-col($width, $gutter:false, $grow:0, $shrink:0);</code></p>
+
+    <p>You can take advantage of the <code>span</code> mixin to easily calculate percentage widths, for example:</p>
+
+    <p><code>@include flex-col(span(4,12));</code></p>
+
+    <hr />
+
+    <h3>Gutterless grids</h3>
+
+    <p>By default, grids don't have gutters:</p>
+  </div>
+
+  <div class="grid--row">
+    <div class="grid--50">50% column with no gutters</div>
+    <div class="grid--50">50% column with no gutters</div>
+    <div class="grid--50">50% column with no gutters</div>
+    <div class="grid--50">50% column with no gutters</div>
+  </div>
+
+  <pre>.grid--row {
+  @include flex-row;
+}
+
+.grid--50 {
+  @include flex-col(50%);
+  @include example-column;
+}</pre>
+
+  <hr />
+
+  <h3 class="heading-three">Grids with gutters</h3>
+
+  <p>You can pass in a gutter value to the mixins:</p>
+
+  <div class="grid-gutter--row">
+    <div class="grid-gutter--50">
+      <div>50% column with gutters</div>
+    </div>
+    <div class="grid-gutter--50">
+      <div>50% column with gutters</div>
+    </div>
+    <div class="grid-gutter--50">
+      <div>50% column with gutters</div>
+    </div>
+    <div class="grid-gutter--50">
+      <div>50% column with gutters</div>
     </div>
   </div>
-  <div class="grid-8">
-    <div class="panel__default">
-      This column has a class of grid-8
+
+  <pre>.grid-gutter--row {
+  @include flex-row($desktop-gutters);
+}
+
+.grid-gutter--50 {
+  @include flex-col(50%, $desktop-gutters);
+  @include example-column("> div");
+}</pre>
+
+  <hr />
+
+  <h3 class="heading-three">Responsive columns</h3>
+
+  <p>These columns have a media query at 800px wide that expands the columns to 50%.</p>
+
+  <div class="grid-gutter--row">
+    <div class="grid-gutter--25-50">
+      <div>25% column with gutters, that responds to 50%</div>
+    </div>
+    <div class="grid-gutter--25-50">
+      <div>25% column with gutters, that responds to 50%</div>
+    </div>
+    <div class="grid-gutter--25-50">
+      <div>25% column with gutters, that responds to 50%</div>
+    </div>
+    <div class="grid-gutter--25-50">
+      <div>25% column with gutters, that responds to 50%</div>
     </div>
   </div>
-</div>
-    <%- end -%>
-    <%= yield :basic -%>
-    <pre class="sg-pre prettyprint"><%= render_source(yield :basic) -%></pre>
-  </div>
 
-  <p>These are percentage-based grids, so they will respond down as you scale your browser.</p>
+  <pre>.grid-gutter--25-50 {
+  @include flex-col(25%, $desktop-gutters);
+  @include example-column("> div");
+  @include media-query(800px) {
+    @include flex-col(50%);
+  }
+}</pre>
 
-  <h2 class="heading-four">Mobile grids</h2>
+  <hr />
 
-  <p>If you want to alter the grids on mobile, you can pass in <code>grid-x-small</code> classes as well:</p>
+  <h3 class="heading-three">Responsive gutters</h3>
 
-  <div>
-    <%- content_for :mobile do -%>
-<div class="grid">
-  <div class="grid-4 grid-12-small">
-    <div class="panel__default">
-      This column has a class of grid-4 and grid-12-small
+  <p>These grids have flexible gutters:</p>
+
+  <div class="grid-gutter--row--responsive">
+    <div class="grid-gutter--50--responsive">
+      <div>50% column with responsive gutters</div>
+    </div>
+    <div class="grid-gutter--50--responsive">
+      <div>50% column with responsive gutters</div>
+    </div>
+    <div class="grid-gutter--25-50--responsive">
+      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+    </div>
+    <div class="grid-gutter--25-50--responsive">
+      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+    </div>
+    <div class="grid-gutter--25-50--responsive">
+      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+    </div>
+    <div class="grid-gutter--25-50--responsive">
+      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
     </div>
   </div>
-  <div class="grid-8 grid-12-small">
-    <div class="panel__default">
-      This column has a class of grid-8 and grid-12-small
+
+  <pre>.grid-gutter--row--responsive {
+  @include flex-row($desktop-gutters);
+  @include media-query(800px) {
+    @include flex-row($small-gutter);
+  }
+}
+.grid-gutter--50--responsive {
+  @include flex-col(50%, $desktop-gutters);
+  @include example-column("> div");
+
+  @include media-query(800px) {
+    @include flex-col(50%, $small-gutter);
+  }
+}
+.grid-gutter--25-50--responsive {
+  @include flex-col(25%, $desktop-gutters);
+  @include example-column("> div");
+
+  @include media-query(800px) {
+    @include flex-col(50%, $small-gutter);
+  }
+}</pre>
+
+  <hr />
+
+  <h3 class="heading-three">Complex layout</h3>
+
+  <div class="grid-complex">
+
+
+    <div class="grid-complex--item__large">
+      <div class="grid-complex--item__large--image" style="background-image: url('http://placehold.it/500x500');"></div>
+      <div class="panel__passive panel--padding" contenteditable>
+        Text
+      </div>
     </div>
-  </div>
-</div>
-    <%- end -%>
-    <%= yield :mobile -%>
-    <pre class="sg-pre prettyprint"><%= render_source(yield :mobile) -%></pre>
-  </div>
 
-  <h2 class="heading-four">Equal grids</h2>
-
-  <p>To create equal grids, you can swap your wrapper class for <code>grid__x</code>, where x represents the word for a number. Each of the grid columns will then use the class <code>column</code>, rather than a <code>grid-x</code> class.</p>
-
-  <p>These pre-made grid layouts have pre-defined breakpoints. As you scale the browser you can see the four column grid break to three, then two, then one.</p>
-
-  <p>To create a four column grid, you would use <code>grid__four</code>.</p>
-
-  <div>
-    <%- content_for :even do -%>
-<div class="grid__four">
-  <%- (1..4).each do |i| -%>
-  <div class="column">
-    <div class="panel__default">
-      This column only has a class of column
+    <div class="grid-complex--item__large">
+      <div class="grid-complex">
+        <div class="grid-complex--item__wide">
+          <div class="grid-complex--tile panel__passive">
+            <img src="http://placehold.it/500x200" />
+            <div class="panel--padding" contenteditable>
+              Text<br />
+              Text
+            </div>
+          </div>
+        </div>
+        <div class="grid-complex--item__large-small">
+          <div class="grid-complex--tile panel__passive">
+            <img src="http://placehold.it/250x200" />
+            <div class="panel--padding" contenteditable>
+              Text
+            </div>
+          </div>
+        </div>
+        <div class="grid-complex--item__large-small">
+          <div class="grid-complex--tile panel__passive">
+            <img src="http://placehold.it/250x200" />
+            <div class="panel--padding" contenteditable>
+              Text
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <%- end -%>
-</div>
-    <%- end -%>
-    <%= yield :even -%>
-    <pre class="sg-pre prettyprint"><%= render_source(yield :even) -%></pre>
+
+    <div class="grid-complex--item__small">
+      <div class="grid-complex--tile panel__passive">
+        <img src="http://placehold.it/250x200" />
+        <div class="panel--padding" contenteditable>
+          Text
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-complex--item__small">
+      <div class="grid-complex--tile panel__passive">
+        <img src="http://placehold.it/250x200" />
+        <div class="panel--padding" contenteditable>
+          Text<br />
+          Text
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-complex--item__small">
+      <div class="grid-complex--tile panel__passive">
+        <img src="http://placehold.it/250x200" />
+        <div class="panel--padding" contenteditable>
+          Text
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-complex--item__small">
+      <div class="grid-complex--tile panel__passive">
+        <img src="http://placehold.it/250x200" />
+        <div class="panel--padding" contenteditable>
+          Text
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

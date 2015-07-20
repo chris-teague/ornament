@@ -149,3 +149,144 @@ code {
   @include list-vertical($small-unit, 1px solid #ccc);
   @include list-flush("top and bottom");
 }
+
+// GRIDS
+
+@mixin example-column($children:"") {
+
+  &:nth-child(4n+1) #{$children} {
+    background: $passive-color;
+    padding: $panel-padding;
+  }
+
+  &:nth-child(4n+2) #{$children} {
+    background: darken($passive-color, 2);
+    padding: $panel-padding;
+  }
+
+  &:nth-child(4n+3) #{$children} {
+    background: darken($passive-color, 4);
+    padding: $panel-padding;
+  }
+
+  &:nth-child(4n+4) #{$children} {
+    background: darken($passive-color, 6);
+    padding: $panel-padding;
+  }
+}
+
+/**
+  Grids with no gutters
+*/
+.grid--row {
+  @include flex-row;
+}
+
+.grid--50 {
+  @include flex-col(50%);
+  @include example-column;
+}
+
+/**
+  Grids with gutters
+*/
+.grid-gutter--row {
+  @include flex-row($desktop-gutters);
+}
+
+.grid-gutter--50 {
+  @include flex-col(50%, $desktop-gutters);
+  @include example-column("> div");
+}
+
+/**
+  Responsive grids with gutters
+*/
+.grid-gutter--25-50 {
+  @include flex-col(25%, $desktop-gutters);
+  @include example-column("> div");
+  @include media-query(800px) {
+    @include flex-col(50%);
+  }
+}
+
+/**
+  Responsive grids with responsive gutters
+*/
+.grid-gutter--row--responsive {
+  @include flex-row($desktop-gutters);
+  @include media-query(800px) {
+    @include flex-row($small-gutter);
+  }
+}
+.grid-gutter--50--responsive {
+  @include flex-col(50%, $desktop-gutters);
+  @include example-column("> div");
+
+  @include media-query(800px) {
+    @include flex-col(50%, $small-gutter);
+  }
+}
+.grid-gutter--25-50--responsive {
+  @include flex-col(25%, $desktop-gutters);
+  @include example-column("> div");
+
+  @include media-query(800px) {
+    @include flex-col(50%, $small-gutter);
+  }
+}
+
+/**
+  Complex grid
+*/
+.grid-complex {
+  @include flex-row($desktop-gutters);
+}
+
+.grid-complex--item__large {
+  @include display-flex;
+  @include flex-direction(column);
+  @include flex-col(50%, $desktop-gutters);
+  @include media-query(800px) {
+    @include flex-col(100%);
+  }
+}
+
+.grid-complex--item__large--image {
+  @include flex-grow(1);
+  background-position: center;
+  background-size: cover;
+  @include media-query(800px) {
+    padding-top: 80%;
+  }
+}
+
+.grid-complex--item__large-small {
+  @include display-flex;
+  @include flex-col(50%, $desktop-gutters);
+}
+
+.grid-complex--item__wide {
+  @include display-flex;
+  @include flex-col(100%, $desktop-gutters);
+  @include media-query(800px) {
+    @include flex-col(100%);
+  }
+}
+
+.grid-complex--item__small {
+  @include display-flex;
+  @include flex-col(25%, $desktop-gutters);
+  @include media-query(800px) {
+    @include flex-col(50%);
+  }
+}
+
+.grid-complex--tile {
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
