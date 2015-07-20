@@ -18,6 +18,8 @@ $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
 
 // CODE SAMPLES
 
+
+
 pre,
 pre.prettyprint {
   border: 1px solid $sg-grey !important;
@@ -68,6 +70,23 @@ code {
     padding: 0;
     border-radius: none;
     text-shadow: none;
+  }
+}
+
+hr {
+  margin: $large-unit 0;
+  border: 0;
+  height: 1px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50vw;
+    right: -50vw;
+    background: $default-color;
   }
 }
 
