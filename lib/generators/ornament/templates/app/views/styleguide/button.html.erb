@@ -25,15 +25,7 @@
     <a href="#" class="button__success">.button__success</a>
   </p>
 
-  <h2 class="heading-two">Disabled buttons</h2>
-
-  <p>
-    <a href="#" class="button__disabled">.button__disabled</a>
-  </p>
-
-  <p>
-    <a href="#" class="button" disabled>.button[disabled]</a>
-  </p>
+  <hr />
 
   <h2 class="heading-two">Line buttons</h2>
 
@@ -57,11 +49,27 @@
     <a href="#" class="button__success__line">.button__success__line</a>
   </p>
 
+  <hr />
+
+  <h2 class="heading-two">Disabled buttons</h2>
+
+  <p>
+    <a href="#" class="button__disabled">.button__disabled</a>
+  </p>
+
+  <p>
+    <a href="#" class="button" disabled>.button[disabled]</a>
+  </p>
+
+  <hr />
+
   <h2 class="heading-two">Button modifiers</h2>
 
   <p>
     <a href="#" class="button button__full">.button.button__full</a>
   </p>
+
+  <hr />
 
   <h2 class="heading-two">Icons</h2>
 
@@ -88,6 +96,8 @@
   <%= yield :icon_full -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :icon_full) -%></pre>
 
+  <hr />
+
   <h2 class="heading-two">Button group</h2>
 
   <%- content_for :groups do -%>
@@ -99,6 +109,8 @@
   <%- end -%>
   <%= yield :groups -%>
   <pre class="sg-pre prettyprint"><%= render_source(yield :groups) -%></pre>
+
+  <hr />
 
   <h2 class="heading-two">Forward and Back buttons</h2>
 

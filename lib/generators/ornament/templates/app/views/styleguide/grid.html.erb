@@ -31,7 +31,7 @@
 
     <p>By default, grids don't have gutters:</p>
   </div>
-
+  
   <div class="grid--row">
     <div class="grid--50">50% column with no gutters</div>
     <div class="grid--50">50% column with no gutters</div>
@@ -54,18 +54,20 @@
 
   <p>You can pass in a gutter value to the mixins:</p>
 
-  <div class="grid-gutter--row">
-    <div class="grid-gutter--50">
-      <div>50% column with gutters</div>
-    </div>
-    <div class="grid-gutter--50">
-      <div>50% column with gutters</div>
-    </div>
-    <div class="grid-gutter--50">
-      <div>50% column with gutters</div>
-    </div>
-    <div class="grid-gutter--50">
-      <div>50% column with gutters</div>
+  <div>
+    <div class="grid-gutter--row">
+      <div class="grid-gutter--50">
+        <div>50% column with gutters</div>
+      </div>
+      <div class="grid-gutter--50">
+        <div>50% column with gutters</div>
+      </div>
+      <div class="grid-gutter--50">
+        <div>50% column with gutters</div>
+      </div>
+      <div class="grid-gutter--50">
+        <div>50% column with gutters</div>
+      </div>
     </div>
   </div>
 
@@ -84,18 +86,20 @@
 
   <p>These columns have a media query at 800px wide that expands the columns to 50%.</p>
 
-  <div class="grid-gutter--row">
-    <div class="grid-gutter--25-50">
-      <div>25% column with gutters, that responds to 50%</div>
-    </div>
-    <div class="grid-gutter--25-50">
-      <div>25% column with gutters, that responds to 50%</div>
-    </div>
-    <div class="grid-gutter--25-50">
-      <div>25% column with gutters, that responds to 50%</div>
-    </div>
-    <div class="grid-gutter--25-50">
-      <div>25% column with gutters, that responds to 50%</div>
+  <div>
+    <div class="grid-gutter--row">
+      <div class="grid-gutter--25-50">
+        <div>25% column with gutters, that responds to 50%</div>
+      </div>
+      <div class="grid-gutter--25-50">
+        <div>25% column with gutters, that responds to 50%</div>
+      </div>
+      <div class="grid-gutter--25-50">
+        <div>25% column with gutters, that responds to 50%</div>
+      </div>
+      <div class="grid-gutter--25-50">
+        <div>25% column with gutters, that responds to 50%</div>
+      </div>
     </div>
   </div>
 
@@ -113,24 +117,26 @@
 
   <p>These grids have flexible gutters:</p>
 
-  <div class="grid-gutter--row--responsive">
-    <div class="grid-gutter--50--responsive">
-      <div>50% column with responsive gutters</div>
-    </div>
-    <div class="grid-gutter--50--responsive">
-      <div>50% column with responsive gutters</div>
-    </div>
-    <div class="grid-gutter--25-50--responsive">
-      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
-    </div>
-    <div class="grid-gutter--25-50--responsive">
-      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
-    </div>
-    <div class="grid-gutter--25-50--responsive">
-      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
-    </div>
-    <div class="grid-gutter--25-50--responsive">
-      <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+  <div>
+    <div class="grid-gutter--row--responsive">
+      <div class="grid-gutter--50--responsive">
+        <div>50% column with responsive gutters</div>
+      </div>
+      <div class="grid-gutter--50--responsive">
+        <div>50% column with responsive gutters</div>
+      </div>
+      <div class="grid-gutter--25-50--responsive">
+        <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+      </div>
+      <div class="grid-gutter--25-50--responsive">
+        <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+      </div>
+      <div class="grid-gutter--25-50--responsive">
+        <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+      </div>
+      <div class="grid-gutter--25-50--responsive">
+        <div>25% column with gutters, that responds to 50% with a smaller gutter</div>
+      </div>
     </div>
   </div>
 
@@ -161,83 +167,84 @@
 
   <h3 class="heading-three">Complex layout</h3>
 
-  <div class="grid-complex">
+  <div>
+    <div class="grid-complex">
 
-
-    <div class="grid-complex--item__large">
-      <div class="grid-complex--item__large--image" style="background-image: url('http://placehold.it/500x500');"></div>
-      <div class="panel__passive panel--padding" contenteditable>
-        Text
+      <div class="grid-complex--item__large">
+        <div class="grid-complex--item__large--image" style="background-image: url('http://placehold.it/500x500');"></div>
+        <div class="panel__passive panel--padding" contenteditable>
+          Text
+        </div>
       </div>
-    </div>
 
-    <div class="grid-complex--item__large">
-      <div class="grid-complex">
-        <div class="grid-complex--item__wide">
-          <div class="grid-complex--tile panel__passive">
-            <img src="http://placehold.it/500x200" />
-            <div class="panel--padding" contenteditable>
-              Text<br />
-              Text
+      <div class="grid-complex--item__large">
+        <div class="grid-complex">
+          <div class="grid-complex--item__wide">
+            <div class="grid-complex--tile panel__passive">
+              <img src="http://placehold.it/500x200" />
+              <div class="panel--padding" contenteditable>
+                Text<br />
+                Text
+              </div>
+            </div>
+          </div>
+          <div class="grid-complex--item__large-small">
+            <div class="grid-complex--tile panel__passive">
+              <img src="http://placehold.it/250x200" />
+              <div class="panel--padding" contenteditable>
+                Text
+              </div>
+            </div>
+          </div>
+          <div class="grid-complex--item__large-small">
+            <div class="grid-complex--tile panel__passive">
+              <img src="http://placehold.it/250x200" />
+              <div class="panel--padding" contenteditable>
+                Text
+              </div>
             </div>
           </div>
         </div>
-        <div class="grid-complex--item__large-small">
-          <div class="grid-complex--tile panel__passive">
-            <img src="http://placehold.it/250x200" />
-            <div class="panel--padding" contenteditable>
-              Text
-            </div>
-          </div>
-        </div>
-        <div class="grid-complex--item__large-small">
-          <div class="grid-complex--tile panel__passive">
-            <img src="http://placehold.it/250x200" />
-            <div class="panel--padding" contenteditable>
-              Text
-            </div>
+      </div>
+
+      <div class="grid-complex--item__small">
+        <div class="grid-complex--tile panel__passive">
+          <img src="http://placehold.it/250x200" />
+          <div class="panel--padding" contenteditable>
+            Text
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid-complex--item__small">
-      <div class="grid-complex--tile panel__passive">
-        <img src="http://placehold.it/250x200" />
-        <div class="panel--padding" contenteditable>
-          Text
+      <div class="grid-complex--item__small">
+        <div class="grid-complex--tile panel__passive">
+          <img src="http://placehold.it/250x200" />
+          <div class="panel--padding" contenteditable>
+            Text<br />
+            Text
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid-complex--item__small">
-      <div class="grid-complex--tile panel__passive">
-        <img src="http://placehold.it/250x200" />
-        <div class="panel--padding" contenteditable>
-          Text<br />
-          Text
+      <div class="grid-complex--item__small">
+        <div class="grid-complex--tile panel__passive">
+          <img src="http://placehold.it/250x200" />
+          <div class="panel--padding" contenteditable>
+            Text
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid-complex--item__small">
-      <div class="grid-complex--tile panel__passive">
-        <img src="http://placehold.it/250x200" />
-        <div class="panel--padding" contenteditable>
-          Text
+      <div class="grid-complex--item__small">
+        <div class="grid-complex--tile panel__passive">
+          <img src="http://placehold.it/250x200" />
+          <div class="panel--padding" contenteditable>
+            Text
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid-complex--item__small">
-      <div class="grid-complex--tile panel__passive">
-        <img src="http://placehold.it/250x200" />
-        <div class="panel--padding" contenteditable>
-          Text
-        </div>
-      </div>
     </div>
-
   </div>
 
 </div>

@@ -17,11 +17,3 @@
     height: 100%;
   }
 }
-
-.embed__vimeo {
-  @include ratio-sizing(950, 540, iframe);
-}
-
-.embed__youtube {
-  @include ratio-sizing(560, 315, iframe);
-}

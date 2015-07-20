@@ -1,6 +1,9 @@
 <%- content_for :page_title, "Ornament v#{Ornament::VERSION}" -%>
 <%- content_for :page_description do -%>
-  <p>Please be aware that Ornament 2 has dropped support for IE8 and IE9.</p>
+  <p>
+    Please be aware that Ornament 2 has dropped support for IE8 and IE9.<br />
+    Items with strikethroughs have not been tested or updated for v2 yet.
+  </p>
 <%- end -%>
 
 <div class="spacing content-lists">
@@ -11,6 +14,7 @@
     <li><a href="/styleguide/sample_content">Sample Content Page</a></li>
   </ul>
 
+<!--
   <hr />
 
   <h2 class="heading-two">Getting started</h2>
@@ -23,13 +27,24 @@
     <li><a href="/styleguide/getting_started_updating_components">Updating existing components. AKA, 'How do I change the header background colour?'</a></li>
     <li><a href="/styleguide/getting_started_grunt">Using Grunt to generate icons</a></li>
   </ul>
+-->
+
+  <hr />
+
+  <h2 class="heading-two">Flexible application layout</h2>
+  <ul>
+    <li><a href="/styleguide/layout_sidebar_left">Sidebar left</a></li>
+    <li><a href="/styleguide/layout_sidebar_right">Sidebar right</a></li>
+    <li><a href="/styleguide/layout_above_below">Above and below page</a></li>
+    <li><a href="/styleguide/opengraph">Opengraph</a></li>
+  </ul>
 
   <hr />
 
   <h2 class="heading-two">CSS utilities</h2>
   <ul>
-    <li><a href="/styleguide/spang">Spang - Responsive grids</a></li>
-    <li><a href="/styleguide/vertre">Vetre - Vertically aligning an image inside a responsive square</a></li>
+    <li><a href="/styleguide/spang" class="sg-disabled">Spang - Responsive grids</s></a></li>
+    <li><a href="/styleguide/vertre" class="sg-disabled">Vetre - Vertically aligning an image inside a responsive square</a></li>
     <li><a href="/styleguide/lists">List mixins</a></li>
     <li><a href="/styleguide/media_queries">Media Queries</a></li>
   </ul>
@@ -40,9 +55,9 @@
   <ul>
     <li><a href="/styleguide/event-tracking">Event Tracking</a></li>
     <li><a href="/styleguide/showjs">ShowJS</a></li>
-    <li><a href="/styleguide/conformjs">ConformJS</a></li>
+    <li><a href="/styleguide/conformjs" class="sg-disabled">ConformJS</a></li>
     <li><a href="/styleguide/select_link">&lt;select> links</a></li>
-    <li><a href="/styleguide/js_helpers">Ornament JS Helpers</a></li>
+    <li><a href="/styleguide/js_helpers" class="sg-disabled">Ornament JS Helpers</a></li>
   </ul>
 
   <hr />
@@ -51,39 +66,28 @@
   <ul>
     <li><a href="/styleguide/align">Align</a></li>
     <li><a href="/styleguide/button">Button</a></li>
-    <li><a href="/styleguide/clearfix">Clearfix</a></li>
-    <li><a href="/styleguide/environment">Environment</a></li>
-    <li><a href="/styleguide/flexible_input">Flexible Input</a></li>
-    <li><a href="/styleguide/form">Form</a></li>
-    <li><a href="/styleguide/form_upload">Form - Image Uploader</a></li>
-    <li><a href="/styleguide/fotorama">Fotorama - Slider and Galleries</a></li>
+    <li><a href="/styleguide/environment" class="sg-disabled">Environment</a></li>
+    <li><a href="/styleguide/flexible_input" class="sg-disabled">Flexible Input</a></li>
+    <li><a href="/styleguide/form" class="sg-disabled">Form</a></li>
+    <li><a href="/styleguide/form_upload" class="sg-disabled">Form - Image Uploader</a></li>
+    <li><a href="/styleguide/fotorama" class="sg-disabled">Fotorama - Slider and Galleries</a></li>
     <li><a href="/styleguide/grid">Grid</a></li>
-    <li><a href="/styleguide/island">Island</a></li>
-    <li><a href="/styleguide/lightbox">Lightbox</a></li>
-    <li><a href="/styleguide/map">Map</a></li>
-    <li><a href="/styleguide/menu_aim">Menu Aim</a></li>
+    <li><a href="/styleguide/island" class="sg-disabled">Island</a></li>
+    <li><a href="/styleguide/lightbox" class="sg-disabled">Lightbox</a></li>
+    <li><a href="/styleguide/map" class="sg-disabled">Map</a></li>
+    <li><a href="/styleguide/menu_aim" class="sg-disabled">Menu Aim</a></li>
     <li><a href="/styleguide/mobile_navigation">Mobile Navigation</a></li>
-    <li><a href="/styleguide/object_slider">Object Slider</a></li>
-    <li><a href="/styleguide/pagination">Pagination</a></li>
+    <li><a href="/styleguide/object_slider" class="sg-disabled">Object Slider</a></li>
+    <li><a href="/styleguide/pagination" class="sg-disabled">Pagination</a></li>
     <li><a href="/styleguide/panel">Panel</a></li>
     <li><a href="/styleguide/read_more">Read more</a></li>
     <li><a href="/styleguide/embed">Responsive Embeds</a></li>
-    <li><a href="/styleguide/selector">Selector</a></li>
+    <li><a href="/styleguide/selector" class="sg-disabled">Selector</a></li>
     <li><a href="/styleguide/skip_link">Skip Link</a></li>
     <li><a href="/styleguide/table">Table</a></li>
-    <li><a href="/styleguide/tabs">Tabs</a></li>
+    <li><a href="/styleguide/tabs" class="sg-disabled">Tabs</a></li>
     <li><a href="/styleguide/toggle">Toggle</a></li>
     <li><a href="/styleguide/tooltip">Tooltip</a></li>
-  </ul>
-
-  <hr />
-
-  <h2 class="heading-two">Flexible application layout</h2>
-  <ul>
-    <li><a href="/styleguide/layout_sidebar_left">Sidebar left</a></li>
-    <li><a href="/styleguide/layout_sidebar_right">Sidebar right</a></li>
-    <li><a href="/styleguide/layout_above_below">Above and below page</a></li>
-    <li><a href="/styleguide/opengraph">Opengraph</a></li>
   </ul>
 
   <hr />

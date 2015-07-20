@@ -65,20 +65,24 @@
   <%= yield :panel__success -%>
   <%= show_code(yield :panel__success) -%>
 
+  <hr />
+
   <h2 class="heading-two clear">Grouped panels</h2>
 
   <%- content_for :joined_panels do -%>
 <div class="panel">
-  <div class="panel--padding">
+  <div class="panel__passive panel--padding">
     This is the top panel.
   </div>
-  <div class="panel--padding panel--padding__border">
+  <div class="panel__passive panel--padding panel--padding__border">
     This is a second, joined panel with a border.
   </div>
 </div>
   <%- end -%>
   <%= yield :joined_panels -%>
   <%= show_code(yield :joined_panels) -%>
+
+  <hr />
 
   <h2 class="heading-two">Panel grid</h2>
 

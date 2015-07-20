@@ -1,13 +1,14 @@
+.content__compressed,
 .compressed {
   p {
-    margin-top: $xxxxx-small-unit / 2;
-    margin-bottom: $xxxxx-small-unit / 2;
+    margin-top: $xxx-small-unit / 2;
+    margin-bottom: $xxx-small-unit / 2;
     @include flush-children;
   }
 
   .heading-one {
-    margin-top: $xx-small-unit;
-    margin-bottom: $xx-small-unit;
+    margin-top: $small-unit;
+    margin-bottom: $small-unit;
     @include flush-children;
 
     @include media-query($breakpoint-typography) {
@@ -17,8 +18,8 @@
   }
 
   .heading-two {
-    margin-top: $xx-small-unit;
-    margin-bottom: $xx-small-unit;
+    margin-top: $small-unit;
+    margin-bottom: $small-unit;
     @include flush-children;
 
     @include media-query($breakpoint-typography) {
@@ -47,5 +48,11 @@
       margin-top: $xxx-small-unit;
       margin-bottom: $xxx-small-unit;
     }
+  }
+
+  .button-group {
+    margin-top: $xx-small-unit;
+    margin-bottom: $xx-small-unit;
+    @include flush-children;
   }
 }
