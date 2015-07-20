@@ -13,11 +13,11 @@
 // The base line height should be unitless (ratio of line height to font size).
 //
 
-$base-pixel:          14px;
+$base-pixel:          16px;
 
-$small-font-size:     12px;
+$small-font-size:     14px;
 $base-font-size:      $base-pixel;
-$large-font-size:     16px;
+$large-font-size:     18px;
 $base-line-height:    1.5;
 $base-line-size:      $base-font-size * $base-line-height;
 

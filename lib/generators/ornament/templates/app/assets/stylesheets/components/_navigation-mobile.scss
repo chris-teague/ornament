@@ -208,7 +208,7 @@ $navigation-secondary-pane-link-color:  #fff;
 
   // Back buttons
   .back {
-    // @extend .header;
+    @extend .header;
     background: $navigation-secondary-pane-background;
     padding-left: $xx-small-unit;
     padding-right: $xx-small-unit;

@@ -81,7 +81,7 @@
             <div class="pane">
 
               <div class="header header__mobile">
-                <%= link_to "Site Name", root_path, class: "header--logo" -%>
+                <%= link_to "Ornament", root_path, class: "header--logo" -%>
               </div>
 
               <div class="pane--navigation-container">
@@ -111,7 +111,7 @@
         <header class="header header__primary layout--header" role="banner">
           <div class="layout--container">
 
-            <a href="<%= root_path -%>" class="header--logo">Site Name</a>
+            <a href="<%= root_path -%>" class="header--logo">Ornament</a>
             <div class="header--aside">
               <ul class="list-horizontal">
                 <li><a href="#">Elit Fringilla</a></li>
@@ -148,8 +148,9 @@
 
         <%- if content_for? :page_title -%>
           <div class="content--title">
-            <div class="layout--container">
+            <div class="layout--container content-spacing">
               <h1 class="heading-one"><%= yield :page_title %></h1>
+              <%= yield :page_description -%>
             </div>
           </div>
         <%- end -%>
