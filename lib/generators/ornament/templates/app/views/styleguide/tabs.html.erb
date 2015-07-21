@@ -1,4 +1,4 @@
-<% content_for :title, "Tabs" %>
+<% content_for :page_title, "Tabs" %>
 
 <div class="spacing">
 
@@ -32,6 +32,8 @@
     <%= yield :example_1 -%>
 
     <pre class="sg-pre prettyprint"><%= render_source(yield :example_1) -%></pre>
+
+    <hr />
 
     <h2 class="heading-two">Example with filled body</h2>
 
@@ -74,6 +76,8 @@
     <pre class="sg-pre prettyprint">&lt;div class="tabs <strong>tabs__filled</strong>">
 ...</pre>
 
+    <hr />
+
     <h2 class="heading-two">Passive Deeplinking</h2>
 
     <p>Passive deeplinking allows you to employ a tabset and deeplink to a particular pane. Interacting with the tabs will not update the URL.</p>
@@ -88,6 +92,8 @@
 &lt;li>&lt;a href="#tab1_3" class="tabs--link" <strong>data-tab="tab1_3"</strong>>Tab #3&lt;a>&lt;/li>
 ...
 &lt;a <strong>href="#tab1_3" data-tab-link="tab1_3"</strong>>This link lives outside of a tabset, but will open a tab.&lt;/a></pre>
+
+    <hr />
 
     <h2 class="heading-two">Active Deeplinking</h2>
 
@@ -122,6 +128,8 @@
 
     <pre class="sg-pre prettyprint"><%= render_source(yield :example_deeplink) -%></pre>
 
+    <hr />
+
     <h2 class="heading-two">Select menu fallback on smaller screens</h2>
 
     <p>To make your tabs fall back to a <code>select</code> menu, simple add <code>data-tabs-fallback-select</code> attribute. to your tabs container.</p>
@@ -150,6 +158,8 @@
     <%= yield :example_select -%>
 
     <pre class="sg-pre prettyprint"><%= render_source(yield :example_select) -%></pre>
+
+    <hr />
 
     <h2 class="heading-two">Swipable Tabs <span class="poc" title="Warning: untested and unfinalised. Should not be used in production.">Proof of Concept</span></h2>
 
@@ -182,10 +192,14 @@
 
     <pre class="sg-pre prettyprint"><%= render_source(yield :example_swipe) -%></pre>
 
+    <hr />
+
     <h2 class="heading-two">Global settings</h2>
 
     <p>Active deeplinking can be enabled at the top of the javascript file by changing <code>activeDeeplinking</code> to true.</p>
     <p>Swipable tab overscroll value can be adjusted by changing the <code>tabOverScroll</code> value.</p>
+
+    <hr />
 
     <h2 class="heading-two">Events</h2>
 

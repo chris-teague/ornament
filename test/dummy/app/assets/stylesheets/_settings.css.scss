@@ -96,12 +96,12 @@ $site-breakpoints:
 // Site gutters to be used at desktop and specific breakpoints. Used within grids util. (Breakpoint keyword, Gutter size)
 //
 
-$desktop-gutters: $large-unit;
+$desktop-gutters: $x-small-unit;
 
 $large-gutter:    $large-unit;
-$medium-gutter:   $large-unit;
-$small-gutter:    $large-unit;
-$tiny-gutter:     $default-unit;
+$medium-gutter:   $default-unit;
+$small-gutter:    $small-unit;
+$tiny-gutter:     $x-small-unit;
 
 $site-gutters:
   false
@@ -133,7 +133,7 @@ $background-color: #fff;
 $link-color: $primary-color;
 $link-hover-color: false;
 
-$divider: $passive-color;
+$divider: $default-color;
 $input-border-color: #D3D3D3;
 $input-border-focus-color: darken($input-border-color,20);
 $table-border-color: #BDC3C7;
@@ -171,16 +171,6 @@ $layout-animation-duration: 0.5s;
   LEGACY SETTINGS
   TO BE CONSOLIDATED AND REMOVED
 */
-
-
-// BASE FONT SIZE
-
-$FONT_SIZE: 16px;
-
-// LINES
-
-$LINE_HEIGHT: 1.375;       // 22px
-$LINE: $LINE_HEIGHT * 1em; // 1.375em
 
 // GUTTERS
 

@@ -3,8 +3,7 @@ $tab-inactive-color: #ECF0F1;
 // TABS
 
 .tabs--links {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 
   ul {
     @include pie-clearfix;
@@ -17,17 +16,17 @@ $tab-inactive-color: #ECF0F1;
     @include flex(0 0 auto);
   }
 
-  .tabs--link + .tabs--link {
+  li + li .tabs--link {
     margin-left: 2px;
-    position: relative;
   }
 
   // Webkit flexbox overflow issue
   // Not counting the last border for the width
-  .tabs--link:last-child::after {
+  li:last-child::after {
     content: "";
     float: right;
     margin-right: -26px;
+    margin-top: -2px;
     width: 2px;
     height: 2px;
   }
