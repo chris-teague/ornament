@@ -153,7 +153,7 @@
 }
 
 // disabled buttons
-.button[disabled] {
+.button[disabled]:not([data-disable-with-loading]) {
   @include button-background($passive-color,$passive-color);
   color: $white;
   cursor: not-allowed;
@@ -162,6 +162,22 @@
 .button__disabled {
   @extend .button;
   @extend .button[disabled];
+}
+
+// loading state button
+.button[data-disable-with-loading] {
+  svg {
+    display: none;
+  }
+}
+.button[data-disable-with-loading][disabled] {
+  span {
+    display: none;
+  }
+
+  svg {
+    display: block;
+  }
 }
 
 // full width buttons

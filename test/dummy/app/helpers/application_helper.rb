@@ -22,6 +22,7 @@ module ApplicationHelper
     options[:height] = 24 unless options[:height].present?
     options[:stroke] = "#000000" unless options[:stroke].present?
     options[:fill] = "#000000" unless options[:fill].present?
+    options[:class] = "" unless options[:class].present?
     render("shared/icons/#{icon_path}", options: options)
   end
 

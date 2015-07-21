@@ -9,6 +9,7 @@
   svg {
     width: $icon-width;
     height: $icon-height;
+    margin: 0 auto; // firefox workaround for flexbox issues on buttons
     @include align-self(center);
   }
 }
