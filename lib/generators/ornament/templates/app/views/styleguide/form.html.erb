@@ -298,15 +298,20 @@
 
   <p>You can limit text fields by adding a <code>data-limiter</code> attribute. The value sent to the attribute is the number of characters you want to limit the field to. eg:</p>
 
-  <%- content_for :limiter do -%>
-<div class="inputs">
-  <div class="form__medium">
-    <textarea type="text" data-limiter="200"></textarea>
+  <div class="inputs form__medium">
+    <textarea data-limiter="200"></textarea>
+    <input type="text" data-limiter="80" />
   </div>
-</div>
-  <%- end -%>
-  <%= yield :limiter -%>
 
-  <pre class="sg-pre prettyprint"><%= render_source(yield :limiter) -%></pre>
+  <pre class="sg-pre prettyprint">&lt;%= f.input :name, input_html: { data: { limiter: "200" } } -%></pre>
+
+  <p>You can make the text limiter a little more subtle by adding the data attribute <code>data-limiter-micro</code>:</p>
+
+  <div class="inputs form__medium">
+    <textarea data-limiter="200" data-limiter-micro></textarea>
+    <input type="text" data-limiter="80" data-limiter-micro />
+  </div>
+
+  <pre class="sg-pre prettyprint">&lt;%= f.input :name, input_html: { data: { limiter: "200", limiter_micro: "" } } -%></pre>
 
 </div>
