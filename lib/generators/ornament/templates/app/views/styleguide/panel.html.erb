@@ -90,12 +90,14 @@
 
   <%- content_for :grid do -%>
 <div>
-  <div class="grid__three" data-conform-columns="panels">
+  <div class="grid__three">
     <%- (1..10).each do |i| -%>
       <div class="column">
-        <div class="panel__default content__compressed" data-conform="panels">
-          <h2 class="heading-six">Panel</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+        <div class="panel__default panel__flex">
+          <div class="panel__flex--content content__compressed">
+            <h2 class="heading-six">Panel</h2>
+            <p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quo, expedita natus ab. Deserunt error minima.</p>
+          </div>
           <a href="#" class="button button__full">Action Button!</a>
         </div>
       </div>

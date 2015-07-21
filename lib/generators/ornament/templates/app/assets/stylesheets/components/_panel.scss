@@ -71,6 +71,20 @@ a.panel {
   }
 }
 
+// PANEL FLEX
+.panel__flex {
+  @include display-flex;
+  @include flex-direction(column);
+}
+
+.panel__flex--content {
+  @include flex(1);
+}
+
+.panel__flex .button {
+  margin-top: $default-unit;
+}
+
 // SPACING PANELS
 
 .panel-spacing {

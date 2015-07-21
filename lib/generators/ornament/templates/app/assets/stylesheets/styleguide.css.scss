@@ -22,6 +22,12 @@ $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
   @include normal-code;
 }
 
+.sg-pre {
+  margin-top: $default-unit;
+  margin-bottom: $default-unit;
+  @include flush-children;
+}
+
 .sg-toggle-code {
   background: $passive-color;
   border: 1px solid $input-border-focus-color;
