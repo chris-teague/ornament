@@ -20,16 +20,13 @@ $sg-code-font:      Consolas, "Liberation Mono", Courier, monospace;
 
 pre,
 pre.prettyprint {
-  border: 1px solid $sg-grey !important;
-  background: $sg-light-grey;
-  padding: 0.5em 1em !important;
-  margin: 1.5em 0;
-  font-family: $sg-code-font;
+  background: $passive-color;
+  font-family: monospace;
+  border-radius: 4px;
+  text-shadow: 1px 1px 0 #fff;
+  max-width: 100%;
   overflow: auto;
-  word-wrap: normal;
-  border-radius: $border-radius;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
-  text-shadow: 1px 1px #fff;
+  padding: 20px;
 
   strong {
     font-weight: bold;

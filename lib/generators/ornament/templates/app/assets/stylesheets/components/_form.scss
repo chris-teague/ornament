@@ -147,6 +147,14 @@ $placeholder-color: #ccc;
     margin-top: $xxx-small-unit;
   }
 }
+.control-group {
+  .control-label {
+    display: inline-block;
+  }
+  .controls {
+    margin-top: $xxx-small-unit;
+  }
+}
 
 // INPUT NUMBER SPINNERS
 input[type=number]::-webkit-inner-spin-button,
@@ -190,21 +198,17 @@ input[type=number] {
 }
 
 // FIELD LENGTH MODIFIERS
-.input__large,
-.form-field__large {
+.form__large {
   max-width: spanf(3,4,$form-width);
 }
 
-.input__medium,
-.form-field__medium {
+.form__medium {
   max-width: spanf(1,2,$form-width);
 }
-.input__small,
-.form-field__small {
+.form__small {
   max-width: spanf(1,3,$form-width);
 }
-.input__x-small,
-.form-field__x-small {
+.form__x-small {
   max-width: spanf(1,4,$form-width);
 }
 
@@ -235,7 +239,7 @@ $radio-offset: 24px;
   }
 }
 
-.form--horizontal {
+.form__horizontal {
   @include pie-clearfix;
 
   .radio,
@@ -251,10 +255,10 @@ $radio-offset: 24px;
   position: relative;
   @include pie-clearfix;
 
-  .form-field--label {
+  .control-label {
     padding-left: $radio-offset;
   }
-  .form-field--input {
+  .controls {
     position: absolute;
     top: 0;
     left: 0;
@@ -269,28 +273,31 @@ $radio-offset: 24px;
 }
 
 // ERRORS & HINTS
-.form-field--hint,
-.form-field--error-message {
+.hint-block,
+.error-block {
   display: block;
   clear: both;
 }
 
-.form-field--hint {
+.hint-block {
   color: $hint-color;
   font-style: italic;
-  font-size: $small-font-size;
+  font-size: $x-small-font-size;
   margin: 0;
 }
 
-.form-field--error-message {
+.error-block {
   color: $error-color;
   font-size: $small-font-size;
   margin-top: $xxxxx-small-unit;
 }
 
 // LABELS WITH ERRORS
-.form-field__error {
+.error .control-label {
   color: $error-color;
+}
+.error .controls input {
+  border-color: $error-color;
 }
 
 // REQUIRED FIELDS
@@ -300,7 +307,7 @@ abbr[title=required] {
 }
 
 // INPUT ATTACHMENTS
-.form-field__attachments {
+.form__attachments {
   @include display-flex;
   max-width: 100%;
 
@@ -320,7 +327,7 @@ abbr[title=required] {
   }
 }
 
-.form-field--attachment:not(.button) {
+.form--attachment:not(.button) {
   @include display-flex;
   background: $passive-color;
   padding-left: $xxxx-small-unit;
@@ -333,7 +340,7 @@ abbr[title=required] {
   }
 }
 
-.form-field--attachment {
+.form--attachment {
   border-radius: 0;
 
   &:first-child {
