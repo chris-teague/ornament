@@ -1,0 +1,139 @@
+<% content_for :page_title, "Icons" %>
+
+<div class="spacing">
+  
+  <div class="content">
+    <p>SVG icons can be used with a rails helper <code>icon</code></p>
+    <p>The <code>icon</code> helper takes several attributes, but at the very least needs the name of the icon:</p>
+  </div>
+
+  <%= icon("close") -%>
+
+  <pre>&lt;%= icon("close") -%></pre>
+
+  <hr />
+
+  <div class="content">
+    <h2>Changing icon sizes</h2>
+
+    <p>By default, icons are 24x24.</p>
+
+    <p>Passing <code>width</code> and/or <code>height</code> in to the icon helper is a quick and easy way to adjust the sizing of the icon:</p>
+  </div>
+
+  <%= icon("close", width: 16, height: 16) -%>
+
+  <pre>&lt;%= icon("close", width: 16, height: 16) -%></pre>
+
+  <%= icon("close", width: 24, height: 24) -%>
+
+  <pre>&lt;%= icon("close", width: 24, height: 24) -%></pre>
+
+  <%= icon("close", width: 32, height: 32) -%>
+
+  <pre>&lt;%= icon("close", width: 32, height: 32) -%></pre>
+
+  <%= icon("close", width: 64, height: 64) -%>
+
+  <pre>&lt;%= icon("close", width: 64, height: 64) -%></pre>
+
+  <hr />
+
+  <div class="content">
+    <h2>Icon colouring</h2>
+
+    <p>By default, all fills and strokes are black (#000000)</p>
+
+    <p>If you don't want to use CSS to control the colouring of the icon, you can use <code>fill</code> and <code>stroke</code> attributes instead.</p>
+  </div>
+
+  <%= icon("close", stroke: "#BADA55") -%>
+
+  <pre>&lt;%= icon("close", stroke: "#BADA55") -%></pre>  
+
+  <%= icon("checkbox", checked: true, stroke: "#BADA55", fill: "purple") -%>
+
+  <pre>&lt;%= icon("close", stroke: "#BADA55", fill: "purple", checked: true) -%></pre>  
+
+  <hr />
+
+  <h2 class="heading-two">Out of the box icons</h2>
+
+  <div class="icon-grid">
+    <div class="icon-grid--icon">
+      <%= icon("arrow") -%>
+      <span>icon("arrow")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("checkbox") -%>
+      <span>icon("checkbox")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("checkbox", checked: true) -%>
+      <span>icon("checkbox", checked: true)</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("close") -%>
+      <span>icon("close")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("file") -%>
+      <span>icon("file")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("file", text: "PDF") -%>
+      <span>icon("file", text: "PDF")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("hamburger") -%>
+      <span>icon("hamburger")</span>
+    </div>
+    <div class="icon-grid--icon">
+      <%= icon("search") -%>
+      <span>icon("search")</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="content">
+
+    <h2>Icon sass mixins</h2>
+    
+    <h3>icon-block</h3>
+    <p><code>@include icon-block($block-width, $icon-width, $block-height, $icon-height);</code></p>
+    <p>This is used to center an icon in a block. For example you have a coloured box that you want to center an icon in:</p>
+
+    <div class="icon-block">
+      <%= icon("close", stroke: "#ffffff") -%>
+    </div>
+
+    <p>Simply wrap the icon in a div:</p>
+
+    <pre>&lt;div class="icon-block">
+  &lt;%= icon("close", stroke: "#ffffff") -%>
+&lt;/div></pre>
+
+    <p>Then apply the mixin using sass:</p>
+
+    <pre>.icon-block {
+  background: $default-color;
+  @include icon-block(44px, 22px);
+}</pre>
+
+  </div>
+
+  <hr />
+
+  <div class="content">
+    <h2>Making new icons</h2>
+    <p>Icons live in <code>app/views/shared/icons</code> as <code>.html.erb</code> files.</p>
+    <p>For example, creating <code>example.html.erb</code> in this folder will allow you to use <code>icon("example")</code>.</p>
+    <p>Be sure to update any <code>stroke</code> and <code>fill</code> paths with the following ruby code so that you can over-ride them in the helper:</p>
+
+    <pre>... fill: &lt;%= options[:fill] -%>...
+... stroke: &lt;%= options[:stroke] -%>...</pre>
+
+  </div>
+  
+</div>

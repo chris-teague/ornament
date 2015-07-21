@@ -175,24 +175,24 @@
 .button__icon-left {
   display: inline-block;
 
-  &:before {
+  svg {
     position: relative;
-    top: 3px;
   }
 }
-.button__icon-right:before {
+.button__icon-right svg {
   float: right;
   margin-left: $xxxxx-small-unit;
 }
-.button__icon-left:before {
+.button__icon-left svg {
   float: left;
   margin-right: $xxxxx-small-unit;
 }
 
 .button__icon {
   display: inline-block;
+  vertical-align: bottom;
 
-  &:before {
+  svg {
     float: left;
   }
 }

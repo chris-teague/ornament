@@ -1,0 +1,8 @@
+<%- options[:checked] ||= false -%>
+
+<svg viewBox='0 0 22 22' width='<%= options[:width] -%>' height='<%= options[:height] -%>'>
+  <rect x="0.5" y="0.5" width="21" height="21" fill="none" stroke="<%= options[:stroke] -%>" />
+  <%- if options[:checked] -%>
+    <rect x="3" y="3" width="16" height="16" fill="<%= options[:fill] -%>" />
+  <%- end -%>
+</svg>

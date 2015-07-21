@@ -15,4 +15,14 @@ module ApplicationHelper
     code_view.html_safe
   end
 
+  # Icon Helper
+  # <%= icon("close", width: 24, height: 24, stroke: "#BADA55", fill: "purple") -%>
+  def icon(icon_path, options={})
+    options[:width] = 24 unless options[:width].present?
+    options[:height] = 24 unless options[:height].present?
+    options[:stroke] = "#000000" unless options[:stroke].present?
+    options[:fill] = "#000000" unless options[:fill].present?
+    render("shared/icons/#{icon_path}", options: options)
+  end
+
 end

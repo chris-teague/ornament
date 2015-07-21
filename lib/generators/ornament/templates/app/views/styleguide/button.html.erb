@@ -1,65 +1,74 @@
 <% content_for :page_title, "Button" %>
 
-<div class="content-spacing">
+<div class="spacing">
 
   <h2 class="heading-two">Button colours</h2>
 
-  <p>
-    <a href="#" class="button">a.button</a>
-    <button class="button">button.button</button>
-  </p>
+  <div class="spacing-xx-tight">
+    <p>
+      <a href="#" class="button">a.button</a>
+      <button class="button">button.button</button>
+    </p>
 
-  <p>
-    <a href="#" class="button__primary">.button__primary</a>
-  </p>
+    <p>
+      <a href="#" class="button__primary">.button__primary</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__warning">.button__warning</a>
-  </p>
+    <p>
+      <a href="#" class="button__warning">.button__warning</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__error">.button__error</a>
-  </p>
+    <p>
+      <a href="#" class="button__error">.button__error</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__success">.button__success</a>
-  </p>
+    <p>
+      <a href="#" class="button__success">.button__success</a>
+    </p>
+  </div>
 
   <hr />
 
   <h2 class="heading-two">Line buttons</h2>
 
-  <p>
-    <a href="#" class="button__line">.button__line</a>
-  </p>
+  <div class="spacing-xx-tight">
+    <p>
+      <a href="#" class="button__line">.button__line</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__primary__line">.button__primary__line</a>
-  </p>
+    <p>
+      <a href="#" class="button__primary__line">.button__primary__line</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__warning__line">.button__warning__line</a>
-  </p>
+    <p>
+      <a href="#" class="button__warning__line">.button__warning__line</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__error__line">.button__error__line</a>
-  </p>
+    <p>
+      <a href="#" class="button__error__line">.button__error__line</a>
+    </p>
 
-  <p>
-    <a href="#" class="button__success__line">.button__success__line</a>
-  </p>
+    <p>
+      <a href="#" class="button__success__line">.button__success__line</a>
+    </p>
+  </div>
 
   <hr />
 
-  <h2 class="heading-two">Disabled buttons</h2>
+  <div class="content">
+    <h2>Disabled buttons</h2>
 
-  <p>
-    <a href="#" class="button__disabled">.button__disabled</a>
-  </p>
+    <p>To create disabled buttons, you can either add the class <code>button__disabled</code> to the button, or alternatively you can use <code>disabled</code> attribute on the button to get the styling without having to worry about classes.</p>
+  </div>
 
-  <p>
-    <a href="#" class="button" disabled>.button[disabled]</a>
-  </p>
+  <div class="spacing-xx-tight">
+    <p>
+      <a href="#" class="button__disabled">.button__disabled</a>
+    </p>
+    <p>
+      <a href="#" class="button" disabled>.button[disabled]</a>
+    </p>
+  </div>
 
   <hr />
 
@@ -71,30 +80,45 @@
 
   <hr />
 
-  <h2 class="heading-two">Icons</h2>
+  <div class="content">
+    <h2>Icons</h2>
 
-  <%- content_for :icon_buttons do -%>
-<p>
-  <a href="#" class="button button__icon-left icon-search">Search</a>
-  <a href="#" class="button__success button__icon-left icon-search">Search</a>
-  <a href="#" class="button__secondary button__icon-right icon-search">Search</a>
-  <a href="#" class="button__secondary button__icon icon-search"></a>
-</p>
-  <%- end -%>
+    <p>Icons inside buttons can be controlled with various helper classes.</p>
 
-  <%= yield :icon_buttons -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_buttons) -%></pre>
+    <p><code>button__icon-left</code> can be used for buttons with text an icon to the left.</p>
+    <p><code>button__icon-right</code> can be used for buttons with text an icon to the right.</p>
+    <p><code>button__icon</code> can be used for buttons with no text, only an icon.</p>
 
-  <%- content_for :icon_full do -%>
-<p>
-  <a href="#" class="button button__full">
-    <span class="button__icon-left icon-search">Search</span>
-  </a>
-</p>
-  <%- end -%>
+    <p>All of these classes can be used in conjunction with the regular button classes above.</p>
+  </div>
 
-  <%= yield :icon_full -%>
-  <pre class="sg-pre prettyprint"><%= render_source(yield :icon_full) -%></pre>
+  <p>
+    <a href="#" class="button button__icon-left"><%= icon("search", stroke: "#ffffff") -%> Search</a>
+    <a href="#" class="button__success button__icon-left"><%= icon("search", stroke: "#ffffff") -%> Search</a>
+    <a href="#" class="button__secondary button__icon-right">Search <%= icon("search", stroke: "#ffffff") -%></a>
+    <a href="#" class="button__secondary button__icon"><%= icon("search", stroke: "#ffffff") -%></a>
+  </p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#" class="button button__icon-left icon-search">&lt;%= icon("search", stroke: "#ffffff") -%> Search&lt;/a>
+&lt;a href="#" class="button__success button__icon-left icon-search">&lt;%= icon("search", stroke: "#ffffff") -%> Search&lt;/a>
+&lt;a href="#" class="button__secondary button__icon-right icon-search">Search &lt;%= icon("search", stroke: "#ffffff") -%>&lt;/a>
+&lt;a href="#" class="button__secondary button__icon icon-search">&lt;%= icon("search", stroke: "#ffffff") -%>&lt;/a></pre>
+
+  <p>Using <code>button__full</code> along with the <code>button__icon</code> classes allow you to create a centred, fullwidth button with an aligned icon:</p>
+
+  <p>
+    <a href="#" class="button button__full button__icon-left">
+      <span class="button__icon-left">
+        <%= icon("search", stroke: "#ffffff") -%> Search
+      </span>
+    </a>
+  </p>
+
+  <pre class="sg-pre prettyprint">&lt;a href="#" class="button button__full">
+  &lt;span class="button__icon-left">
+    &lt;%= icon("search", stroke: "#ffffff") -%> Search
+  &lt;/span>
+&lt;/a></pre>
 
   <hr />
 
