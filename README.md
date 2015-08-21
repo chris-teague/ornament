@@ -1,6 +1,8 @@
 Ornament
 ========
 
+![alt tag](https://raw.github.com/chris-teague/ornament/boarnament.jpg)
+
 A front-end framework for your Rails app.
 
 Visit the [Ornament website](http://ornament.katalyst.com.au/) for more information.
@@ -31,11 +33,11 @@ Installation
 Prototype Version
 -----------------
 
-You can use the prototype version of Ornament by changing the gemfile branch:  
+You can use the prototype version of Ornament by changing the gemfile branch:
 
-```   
+```
 gem 'ornament', github: 'katalyst/ornament', branch: 'prototype'
-```  
+```
 
 License
 -------
