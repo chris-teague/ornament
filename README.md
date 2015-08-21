@@ -1,7 +1,7 @@
 Ornament
 ========
 
-![alt tag](https://raw.github.com/chris-teague/ornament/blob/prototype-develop/boarnament.jpg)
+![alt tag](https://raw.github.com/chris-teague/ornament/prototype-develop/boarnament.jpg)
 
 A front-end framework for your Rails app.
 
